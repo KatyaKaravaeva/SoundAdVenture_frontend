@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sign_form {
+  display: flex;
+  flex-direction: column;
+  background-color: aliceblue;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.form_control {
+  display: block;
+  height: 40px;
+  width: 100%;
+  padding: 5px 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #ffffff5e;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin: 5%;
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 40px;
+  box-shadow: none;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.btn.btn_primary {
+  background: #fbceb5;
+  border: 1px solid #fbceb5;
+  color: #000;
+}
