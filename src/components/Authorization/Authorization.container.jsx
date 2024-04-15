@@ -15,7 +15,7 @@ export const AuthorizationContainer = () => {
     event.preventDefault();
     const target = event.target;
     try {
-      const { data } = await $host.post("/sign_in", {
+      const { data } = await $host.post("/Auth/sign_in", {
         login: target["signIn[login]"].value,
         password: target["signIn[password]"].value,
       });

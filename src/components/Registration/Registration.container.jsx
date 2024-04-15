@@ -15,8 +15,7 @@ export const RegistrationContainer = () => {
     event.preventDefault();
     const target = event.target;
     try {
-      // TODO IMP
-      const { data } = await $host.post("/sign_up", {
+      const { data } = await $host.post("/Auth/sign_up", {
         login: target["registration[login]"].value,
         password: target["registration[password]"].value,
         name: target["registration[name]"].value,
