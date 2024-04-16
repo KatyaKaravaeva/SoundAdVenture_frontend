@@ -38,8 +38,8 @@ $authHost.interceptors.response.use(
         const response = await $authHost.get(
           `${process.env.REACT_APP_URL}/user/refresh`
         );
-        localStorage.setItem("accessToken", response.data.accessToken);
-        localStorage.setItem("refreshToken", response.data.refreshToken);
+        localStorage.setItem("accessToken", response.data.AccessToken);
+        localStorage.setItem("refreshToken", response.data.RefreshToken);
         return $authHost.request(originalRequest);
       } catch (e) {
         localStorage.removeItem("accessToken");

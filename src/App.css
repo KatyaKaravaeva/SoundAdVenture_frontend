@@ -3,9 +3,10 @@
   --color-dark1: rgb(131, 69, 69);
   --color-dark3-header: #98847e;
   --color-dark3-header-active: #786560be;
+  --color-dark3-header-active-hover: #5c3e36be;
   --color-dark4: #272727;
   --color-dark5: #ad8c8c;
-  --colo-purple: #b040ff;
+  --color-blue: #7d9daa;
 }
 
 * {
