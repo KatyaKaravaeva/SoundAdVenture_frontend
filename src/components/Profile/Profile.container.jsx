@@ -6,14 +6,12 @@ import { useQuery } from "react-query";
 export const ProfileContainer = () => {
   const [userData, setUserData] = useState({});
   const [isActive, setIsActive] = useState(false);
-  const [analytics, setAnalytics] = useState([]);
   const profileQuery = useQuery(
     ["userProfileData"],
     async () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/Auth/user/profile`
       );
-      console.log(data)
       setUserData((prevUserData) => ({ ...prevUserData, ...data }));
       return data;
     },

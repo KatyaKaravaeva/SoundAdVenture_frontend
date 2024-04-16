@@ -4,8 +4,7 @@ import Logo from "../../asserts/images/logo_dip.png";
 import Exit from "../../asserts/images/logout.svg";
 import User from "../../asserts/images/account.svg";
 
-// import styles from "./Header.module.css";
-import { PERSONAL_ACCOUNT, CREATE_AUDIO_TOUR } from "../../navigation/routes";
+import { PERSONAL_ACCOUNT, CREATE_AUDIO_TOUR, All_AUDIO_TOUR} from "../../navigation/routes";
 
 import style from "../Header/Header.module.css";
 
@@ -28,7 +27,7 @@ const HeaderView = ({ exit }) => {
                 <img className={style.user} src={User} />
               </NavLink>
               <NavLink to={CREATE_AUDIO_TOUR}>Create Audio tours</NavLink>
-              <NavLink to="#">All Audio tours</NavLink>
+              <NavLink to={All_AUDIO_TOUR}>All Audio tours</NavLink>
               <NavLink to="#">Audio tour bookmarks</NavLink>
               <NavLink to="#">Сourses</NavLink>
               <NavLink to="#">Сourses bookmarks</NavLink>

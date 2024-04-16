@@ -6,8 +6,16 @@ import MainPage from "../components/MainPage";
 import Registration from "../components/Registration";
 import Profile from "../components/Profile";
 import CreateAudioTour from "../components/CreateAudioTour";
+import AllAudioTour from "../components/AllAudioTour";
 
-import { ROOT, AUTHORIZATION, REGISTRATION, PERSONAL_ACCOUNT, CREATE_AUDIO_TOUR } from "./routes";
+import {
+  ROOT,
+  AUTHORIZATION,
+  REGISTRATION,
+  PERSONAL_ACCOUNT,
+  CREATE_AUDIO_TOUR,
+  All_AUDIO_TOUR,
+} from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
 
@@ -53,6 +61,15 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <CreateAudioTour />
+          </RequiredAuth>
+        }
+      />
+
+      <Route
+        path={All_AUDIO_TOUR}
+        element={
+          <RequiredAuth>
+            <AllAudioTour />
           </RequiredAuth>
         }
       />
