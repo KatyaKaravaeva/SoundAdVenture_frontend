@@ -3,7 +3,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  /* justify-content: space-between; */
 }
 
 .card {
@@ -12,6 +11,7 @@
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  background: linear-gradient(rgb(83, 140, 167), rgba(222, 186, 186, 0.901));
 }
 
 .card:hover {
@@ -35,6 +35,7 @@
 
 .placeholderText {
   color: #666;
+  font-size: 16px;
 }
 
 .cardContent {
@@ -43,23 +44,28 @@
 
 .cardContent h2 {
   margin: 0;
-  font-size: 16px;
+  font-size: 25px;
   margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .cardContent p {
   margin: 0;
   margin-bottom: 8px;
+  color: #fff;
+  line-height: 1.4;
 }
 
 .cardContent strong {
   font-weight: bold;
+  color: #fff;
 }
 
 .button {
   display: inline-block;
-  padding: 8px 16px;
-  background-color: #007bff;
+  padding: 10px 20px;
+  background-color: var(--color-dark3-header-active);
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -67,5 +73,5 @@
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: var(--color-dark3-header-active-hover);
 }
