@@ -7,6 +7,7 @@ import Registration from "../components/Registration";
 import Profile from "../components/Profile";
 import CreateAudioTour from "../components/CreateAudioTour";
 import AllAudioTour from "../components/AllAudioTour";
+import UserAudioTour from "../components/UserAudioTour";
 
 import {
   ROOT,
@@ -15,6 +16,7 @@ import {
   PERSONAL_ACCOUNT,
   CREATE_AUDIO_TOUR,
   All_AUDIO_TOUR,
+  USER_AUDIO_TOUR,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -70,6 +72,15 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <AllAudioTour />
+          </RequiredAuth>
+        }
+      />
+
+      <Route
+        path={USER_AUDIO_TOUR}
+        element={
+          <RequiredAuth>
+            <UserAudioTour />
           </RequiredAuth>
         }
       />
