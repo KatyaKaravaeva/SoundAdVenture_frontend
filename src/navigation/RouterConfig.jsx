@@ -9,6 +9,7 @@ import CreateAudioTour from "../components/CreateAudioTour";
 import AllAudioTour from "../components/AllAudioTour";
 import UserAudioTour from "../components/UserAudioTour";
 import UpdateWatchUserAudioTour from "../components/UpdateWatchUserAudioTour";
+import AllAudioTourBookMark from "../components/AllAudioTourBookMark";
 
 import {
   ROOT,
@@ -19,6 +20,7 @@ import {
   All_AUDIO_TOUR,
   USER_AUDIO_TOUR,
   AUDIO_TOUR,
+  AUDIO_TOUR_BOOKMARK,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -92,6 +94,14 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <UpdateWatchUserAudioTour />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={AUDIO_TOUR_BOOKMARK}
+        element={
+          <RequiredAuth>
+            <AllAudioTourBookMark />
           </RequiredAuth>
         }
       />
