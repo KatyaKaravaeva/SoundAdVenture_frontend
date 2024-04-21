@@ -27,14 +27,69 @@
   color: #555;
   line-height: 1.6;
   margin-bottom: 20px;
+  border-left: 4px solid #007bff; /* Добавляем левую границу */
+  padding-left: 10px; /* Отступ слева для текста */
 }
 
 .place,
-.address,
-.category {
+.address {
   font-size: 16px;
   color: #777;
   margin-bottom: 10px;
+}
+
+.place::before,
+.address::before {
+  content: "•";
+  margin-right: 6px;
+}
+
+.categoryTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.addCategoryButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.addCategoryButton:hover {
+  background-color: #0056b3;
+}
+
+.tagInput,
+.categoryInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px 0 0 20px;
+}
+
+.deleteCategoryButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #dc3545; /* Красный цвет для удаления */
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteCategoryButton:hover {
+  background-color: #c82333; /* Темнее красный цвет при наведении */
 }
 
 .tags {
@@ -64,14 +119,6 @@
 .tagInputContainer {
   display: flex;
   align-items: center;
-}
-
-.tagInput {
-  flex: 1;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 20px 0 0 20px;
 }
 
 .addButton {
@@ -116,4 +163,76 @@
 
 .deleteButton:hover {
   opacity: 0.7;
+}
+
+.categoryInputContainer {
+  margin-top: 20px; /* Добавляем отступ сверху для поля ввода категории */
+  display: flex;
+  align-items: center;
+}
+
+.setCategoryButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.setCategoryButton:hover {
+  background-color: #0056b3;
+}
+
+.cardTitle {
+  background-color: #c8d2dc; /* Выделяющий цвет фона */
+  color: #fff; /* Цвет текста */
+  padding: 20px; /* Отступы */
+  border-radius: 8px; /* Закругление углов */
+  margin-bottom: 20px; /* Отступ снизу */
+}
+
+.cardTitle .title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Уменьшаем отступ снизу */
+}
+
+.cardTitle .description {
+  font-size: 18px;
+  margin-bottom: 10px; /* Уменьшаем отступ снизу */
+}
+
+.cardTitle .place,
+.cardTitle .address {
+  font-size: 16px;
+  margin-bottom: 5px; /* Уменьшаем отступ снизу */
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  background-color: #8697a8; /* Изменяем цвет фона */
+  color: #fff; /* Изменяем цвет текста */
+  padding: 6px 12px; /* Увеличиваем отступы */
+  border-radius: 20px; /* Увеличиваем радиус границ */
+  margin-right: 8px; /* Оставляем небольшой отступ справа */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category:hover {
+  background-color: #7e9b9f; /* Изменяем цвет фона при наведении */
+}
+
+.category .deleteButton {
+  margin-left: 8px; /* Adjust margin */
+  transition: transform 0.3s; /* Добавляем анимацию при наведении */
+}
+
+.deleteButton:hover {
+  transform: scale(1.1); /* Увеличиваем размер при наведении */
 }

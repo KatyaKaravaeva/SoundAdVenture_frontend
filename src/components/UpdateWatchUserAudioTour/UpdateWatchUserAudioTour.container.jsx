@@ -6,7 +6,7 @@ import UpdateWatchUserAudioTourView from "./UpdateWatchUserAudioTour.view";
 
 export const UpdateWatchUserAudioTourContainer = () => {
   const { id } = useParams();
-  const [audioTour, setAudioTour] = useState(null); // Исправляем начальное состояние на null
+  const [audioTour, setAudioTour] = useState(null);
   const [tags, setTags] = useState([]);
   const [category, setCategory] = useState("");
   const [tagInput, setTagInput] = useState("");
@@ -46,22 +46,31 @@ export const UpdateWatchUserAudioTourContainer = () => {
   const handleRemoveTag = async (tagId) => {
     try {
       const { data } = await $authHost.delete(`/Tag/guide/${id}/${tagId}`);
-      // console.log(data);
       setTags(data);
     } catch (error) {
       console.error("Failed to remove tag:", error);
     }
   };
 
-  const handleSetCategory = async () => {
+  const handleSetCategory = async (e) => {
+    e.preventDefault();
     try {
-      await $authHost.post(`/Categories/tour/${audioTour.id}`, {
+      const { data } = await $authHost.post(`/Categories/tour/${id}`, {
         name: categoryInput,
       });
-      setCategory(categoryInput);
+      setCategory(data);
       setCategoryInput("");
     } catch (error) {
       console.error("Failed to set category:", error);
+    }
+  };
+
+  const handleRemoveCategory = async () => {
+    try {
+      await $authHost.delete(`/Categories/tour/${id}`);
+      setCategory("");
+    } catch (error) {
+      console.error("Failed to remove category:", error);
     }
   };
 
@@ -74,7 +83,9 @@ export const UpdateWatchUserAudioTourContainer = () => {
       onAddTag={handleAddTag}
       onRemoveTag={handleRemoveTag}
       onSetCategory={handleSetCategory}
+      onRemoveCategory={handleRemoveCategory}
       setCategoryInput={setCategoryInput}
+      categoryInput={categoryInput}
       tagInput={tagInput}
       setTagInput={setTagInput}
     />
