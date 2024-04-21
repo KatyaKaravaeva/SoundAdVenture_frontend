@@ -75,3 +75,75 @@
 .button:hover {
   background-color: var(--color-dark3-header-active-hover);
 }
+
+
+
+
+
+
+.card {
+  position: relative;
+  width: calc(24% - 10px);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background: linear-gradient(rgb(83, 140, 167), rgba(222, 186, 186, 0.901));
+}
+
+.cardImageContainer {
+  position: relative;
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.placeholderImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholderText {
+  color: #666;
+  font-size: 16px;
+}
+
+.bookmark_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1; 
+}
+
+.bookmarked .bookmarkIcon {
+  display: block;
+}
+
+/* .bookmarked .addedBookmarkIcon {
+  display: none;
+} */
+
+.bookmarkIcon,
+.addedBookmarkIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.cardContent {
+  padding: 15px;
+}
+
