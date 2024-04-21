@@ -3,6 +3,8 @@ import style from "./UserAudioTour.module.css";
 
 import Cancel from "../../asserts/images/cancel.svg";
 
+import { AUDIO_TOUR } from "../../navigation/routes";
+
 const UserAudioTourView = ({
   userAudioTourQuery,
   audioTours,
@@ -39,7 +41,7 @@ const UserAudioTourView = ({
             </p>
             <div className={style.buttonsContainer}>
               <Link
-                to={`/audio-tour/${tour.audioTourId}`}
+                to={`${AUDIO_TOUR}/${tour.audioTourId}`}
                 className={style.button}
               >
                 View Details

@@ -11,7 +11,6 @@ export const UserAudioTourContainer = () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/AudioTour/user`
       );
-      console.log(data);
       setAudioTours(data);
       return data;
     },

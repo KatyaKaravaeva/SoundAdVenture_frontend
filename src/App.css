@@ -26,10 +26,18 @@
 
 body {
   height: 100vh;
-  background-color: lightskyblue;
+  background: url("./asserts/images/bg.jpg") no-repeat center / cover;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* body {
+  height: 100vh;
   background-position: center;
   background-size: cover;
   background: url("./asserts/images/bg.jpg") no-repeat;
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
-}
+  min-width: 1500px;
+} */
