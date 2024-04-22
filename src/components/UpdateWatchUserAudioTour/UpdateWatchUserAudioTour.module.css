@@ -27,8 +27,8 @@
   color: #555;
   line-height: 1.6;
   margin-bottom: 20px;
-  border-left: 4px solid #007bff; /* Добавляем левую границу */
-  padding-left: 10px; /* Отступ слева для текста */
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
 }
 
 .place,
@@ -81,7 +81,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #dc3545; /* Красный цвет для удаления */
+  background-color: #dc3545;
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -89,17 +89,17 @@
 }
 
 .deleteCategoryButton:hover {
-  background-color: #c82333; /* Темнее красный цвет при наведении */
+  background-color: #c82333;
 }
 
 .tags {
   margin-top: 30px;
-  white-space: nowrap; /* Теги будут в одном ряду без переноса */
-  overflow-x: auto; /* Добавляем горизонтальную прокрутку для тегов */
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .tagItem {
-  display: inline-block; /* Устанавливаем теги в один ряд */
+  display: inline-block;
   padding: 8px 16px;
   margin-right: 8px;
   margin-bottom: 8px;
@@ -137,15 +137,6 @@
   background-color: #0056b3;
 }
 
-.tagItem {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
 .deleteButton {
   background: none;
   border: none;
@@ -166,7 +157,7 @@
 }
 
 .categoryInputContainer {
-  margin-top: 20px; /* Добавляем отступ сверху для поля ввода категории */
+  margin-top: 20px;
   display: flex;
   align-items: center;
 }
@@ -188,51 +179,114 @@
 }
 
 .cardTitle {
-  background-color: #c8d2dc; /* Выделяющий цвет фона */
-  color: #fff; /* Цвет текста */
-  padding: 20px; /* Отступы */
-  border-radius: 8px; /* Закругление углов */
-  margin-bottom: 20px; /* Отступ снизу */
+  background-color: #c8d2dc;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .cardTitle .title {
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 10px; /* Уменьшаем отступ снизу */
+  margin-bottom: 10px;
 }
 
 .cardTitle .description {
   font-size: 18px;
-  margin-bottom: 10px; /* Уменьшаем отступ снизу */
+  margin-bottom: 10px;
 }
 
 .cardTitle .place,
 .cardTitle .address {
   font-size: 16px;
-  margin-bottom: 5px; /* Уменьшаем отступ снизу */
+  margin-bottom: 5px;
 }
 
 .category {
   display: inline-flex;
   align-items: center;
-  background-color: #8697a8; /* Изменяем цвет фона */
-  color: #fff; /* Изменяем цвет текста */
-  padding: 6px 12px; /* Увеличиваем отступы */
-  border-radius: 20px; /* Увеличиваем радиус границ */
-  margin-right: 8px; /* Оставляем небольшой отступ справа */
+  background-color: #8697a8;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-right: 8px;
   font-size: 14px;
   font-weight: bold;
 }
 
 .category:hover {
-  background-color: #7e9b9f; /* Изменяем цвет фона при наведении */
+  background-color: #7e9b9f;
 }
 
 .category .deleteButton {
-  margin-left: 8px; /* Adjust margin */
-  transition: transform 0.3s; /* Добавляем анимацию при наведении */
+  margin-left: 8px;
+  transition: transform 0.3s;
 }
 
 .deleteButton:hover {
-  transform: scale(1.1); /* Увеличиваем размер при наведении */
+  transform: scale(1.1);
+}
+
+.comments {
+  margin-top: 20px; /* Добавляем отступ сверху для блока комментариев */
+}
+
+.comment {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.commentText {
+  font-size: 16px;
+  color: #333;
+}
+
+.commentForm {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.commentInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.commentButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.commentButton:hover {
+  background-color: #0056b3;
+}
+
+.setComments {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.setComments:hover {
+  background-color: #0056b3;
 }

@@ -7,6 +7,7 @@ const UpdateWatchUserAudioTourView = ({
   audioTour,
   tags,
   category,
+  comments,
   onAddTag,
   onRemoveTag,
   onSetCategory,
@@ -15,6 +16,9 @@ const UpdateWatchUserAudioTourView = ({
   categoryInput,
   tagInput,
   setTagInput,
+  onAddComment,
+  showComments,
+  setShowComments,
 }) => {
   if (userAudioTourQuery.isLoading || userAudioTourQuery.isRefetching) {
     return <div>Loading...</div>;
@@ -90,6 +94,39 @@ const UpdateWatchUserAudioTourView = ({
           </button>
         </div>
       </form>
+
+      <button
+        className={style.setComments}
+        onClick={(e) => setShowComments(!showComments)}
+      >
+        {showComments ? "Hide Comments" : "Show Comments"}
+      </button>
+
+      {/* Если комментарии отображены, показываем их */}
+      {showComments && (
+        <div className={style.comments}>
+          <h3 className={style.commentsTitle}>Comments:</h3>
+          {comments.map((comment) => (
+            <div key={comment.id} className={style.comment}>
+              <p className={style.commentText}>{comment.text}</p>
+              {/* Дополнительные детали комментария, если нужно */}
+            </div>
+          ))}
+          {/* Форма для добавления нового комментария */}
+          <form
+            className={style.commentForm}
+            onSubmit={(e) => {
+              e.preventDefault();
+              onAddComment(e.target.comment.value);
+            }}
+          >
+            <input className={style.commentInput} type="text" name="comment" />
+            <button className={style.commentButton} type="submit">
+              Add Comment
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

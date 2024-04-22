@@ -11,6 +11,8 @@ export const UpdateWatchUserAudioTourContainer = () => {
   const [category, setCategory] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [categoryInput, setCategoryInput] = useState("");
+  const [comments, setComments] = useState([]); // Добавлено состояние для хранения комментариев
+  const [showComments, setShowComments] = useState(false); // Добавлено состояние для отображения/скрытия комментариев
 
   const userAudioTourQuery = useQuery(
     ["userAudioToursData"],
@@ -73,6 +75,27 @@ export const UpdateWatchUserAudioTourContainer = () => {
       console.error("Failed to remove category:", error);
     }
   };
+  // const fetchComments = async () => {
+  //   try {
+  //     const { data } = await $authHost.get(`/Comment/${id}`);
+  //     setComments(data);
+  //   } catch (error) {
+  //     console.error("Failed to fetch comments:", error);
+  //   }
+  // };
+
+  const handleAddComment = async (comment) => {
+    try {
+      var { data } = await $authHost.post(`/Comment/add/${id}`, {
+        text: comment,
+      });
+      setComments([...comments, data]);
+      // После добавления комментария обновляем список комментариев
+      //fetchComments();
+    } catch (error) {
+      console.error("Failed to add comment:", error);
+    }
+  };
 
   return (
     <UpdateWatchUserAudioTourView
@@ -80,6 +103,7 @@ export const UpdateWatchUserAudioTourContainer = () => {
       audioTour={audioTour}
       tags={tags}
       category={category}
+      comments={comments}
       onAddTag={handleAddTag}
       onRemoveTag={handleRemoveTag}
       onSetCategory={handleSetCategory}
@@ -88,6 +112,9 @@ export const UpdateWatchUserAudioTourContainer = () => {
       categoryInput={categoryInput}
       tagInput={tagInput}
       setTagInput={setTagInput}
+      onAddComment={handleAddComment} // Передаем функцию добавления комментария
+      showComments={showComments}
+      setShowComments={setShowComments} // Передаем функцию для отображения/скрытия комментариев
     />
   );
 };
