@@ -6,7 +6,7 @@
   --color-dark3-header-active-hover: #5c3e36be;
   --color-dark4: #272727;
   --color-dark5: #ad8c8c;
- --color-blue : #7d9daa;
+  --color-blue: #7d9daa;
 }
 
 * {
@@ -30,7 +30,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-attachment: fixed;
 }
-
-
-
-

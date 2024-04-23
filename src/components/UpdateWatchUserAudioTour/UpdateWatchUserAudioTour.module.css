@@ -1,5 +1,5 @@
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 10px auto;
   padding: 30px;
   border-radius: 8px;
@@ -27,7 +27,7 @@
   color: #555;
   line-height: 1.6;
   margin-bottom: 20px;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #7d9daa;
   padding-left: 10px;
 }
 
@@ -249,30 +249,33 @@
   margin-top: 5px;
 }
 
+.commentForm {
+  display: flex; /* Используем flexbox */
+  align-items: center; /* Выравниваем элементы по вертикали */
+}
+
 .commentInput {
   flex: 1;
-  padding: 10px;
-  font-size: 14px;
+  padding: 12px; /* Увеличиваем внутренний отступ */
+  font-size: 16px; /* Увеличиваем размер шрифта */
   border: 1px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
+  transition: border-color 0.3s; /* Добавляем плавный переход при изменении цвета границы */
 }
 
 .commentButton {
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 12px 24px; /* Увеличиваем внутренний отступ */
+  font-size: 16px; /* Увеличиваем размер шрифта */
   font-weight: bold;
   color: #fff;
-  background-color: var(--color-blue);
+  background-color: #7d9daa ;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.commentButton:hover {
-  background-color: #0056b3;
-}
 
 .setComments {
   padding: 10px 20px;
