@@ -31,6 +31,7 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color:#ebf0f1;
 }
 
 .textarea {
@@ -42,6 +43,7 @@
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
+  background-color:#ebf0f1;
 }
 
 .button {

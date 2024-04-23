@@ -6,7 +6,7 @@
   --color-dark3-header-active-hover: #5c3e36be;
   --color-dark4: #272727;
   --color-dark5: #ad8c8c;
-  --color-blue: #7d9daa;
+ --color-blue : #7d9daa;
 }
 
 * {
@@ -27,17 +27,10 @@
 body {
   height: 100vh;
   background: url("./asserts/images/bg.jpg") no-repeat center / cover;
-  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
+  background-attachment: fixed;
 }
 
 
-/* body {
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background: url("./asserts/images/bg.jpg") no-repeat;
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
-  min-width: 1500px;
-} */
+
+

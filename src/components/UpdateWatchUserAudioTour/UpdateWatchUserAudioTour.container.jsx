@@ -11,11 +11,12 @@ export const UpdateWatchUserAudioTourContainer = () => {
   const [category, setCategory] = useState("");
   const [tagInput, setTagInput] = useState("");
   const [categoryInput, setCategoryInput] = useState("");
-  const [comments, setComments] = useState([]); // Добавлено состояние для хранения комментариев
-  const [showComments, setShowComments] = useState(false); // Добавлено состояние для отображения/скрытия комментариев
+  const [comments, setComments] = useState([]);
+  const [showComments, setShowComments] = useState(false);
+  const [newCommentText, setNewCommentText] = useState("");
 
   const userAudioTourQuery = useQuery(
-    ["userAudioToursData"],
+    ["updateUserAudioToursData"],
     async () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/AudioTour/${id}`
@@ -23,6 +24,7 @@ export const UpdateWatchUserAudioTourContainer = () => {
       setAudioTour(data);
       setCategory(data.category);
       setTags(data.tags);
+      setComments(data.comments);
       return data;
     },
     {
@@ -75,23 +77,14 @@ export const UpdateWatchUserAudioTourContainer = () => {
       console.error("Failed to remove category:", error);
     }
   };
-  // const fetchComments = async () => {
-  //   try {
-  //     const { data } = await $authHost.get(`/Comment/${id}`);
-  //     setComments(data);
-  //   } catch (error) {
-  //     console.error("Failed to fetch comments:", error);
-  //   }
-  // };
 
-  const handleAddComment = async (comment) => {
+  const handleAddComment = async (commentText) => {
     try {
-      var { data } = await $authHost.post(`/Comment/add/${id}`, {
-        text: comment,
+      const { data } = await $authHost.post(`/Comment/add/${id}`, {
+        text: commentText,
       });
-      setComments([...comments, data]);
-      // После добавления комментария обновляем список комментариев
-      //fetchComments();
+      setComments(data);
+      setNewCommentText("");
     } catch (error) {
       console.error("Failed to add comment:", error);
     }
@@ -112,9 +105,12 @@ export const UpdateWatchUserAudioTourContainer = () => {
       categoryInput={categoryInput}
       tagInput={tagInput}
       setTagInput={setTagInput}
-      onAddComment={handleAddComment} // Передаем функцию добавления комментария
+      onAddComment={handleAddComment}
       showComments={showComments}
-      setShowComments={setShowComments} // Передаем функцию для отображения/скрытия комментариев
+      setShowComments={setShowComments}
+      newCommentText={newCommentText}
+      setNewCommentText={setNewCommentText}
+      handleAddComment={handleAddComment}
     />
   );
 };

@@ -55,7 +55,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--color-blue);
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -99,17 +99,15 @@
 }
 
 .tagItem {
-  display: inline-block;
-  padding: 8px 16px;
+  display: inline-flex; /* Use flexbox for tag items */
+  align-items: center; /* Align items vertically */
+  background-color: var(--color-blue);
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 14px;
   margin-right: 8px;
   margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .tagItem:hover {
@@ -126,7 +124,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--color-blue);
   border: none;
   border-radius: 0 20px 20px 0;
   cursor: pointer;
@@ -167,7 +165,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--color-blue);
   border: none;
   border-radius: 0 20px 20px 0;
   cursor: pointer;
@@ -229,24 +227,26 @@
 }
 
 .comments {
-  margin-top: 20px; /* Добавляем отступ сверху для блока комментариев */
+  margin-top: 20px;
+}
+
+.commentsTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .comment {
-  margin-bottom: 20px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #ccc;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.commentUser {
+  font-weight: bold;
 }
 
 .commentText {
-  font-size: 16px;
-  color: #333;
-}
-
-.commentForm {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
+  margin-top: 5px;
 }
 
 .commentInput {
@@ -263,7 +263,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--color-blue);
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -279,7 +279,7 @@
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--color-blue);
   border: none;
   border-radius: 20px;
   cursor: pointer;

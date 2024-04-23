@@ -19,6 +19,9 @@ const UpdateWatchUserAudioTourView = ({
   onAddComment,
   showComments,
   setShowComments,
+  newCommentText,
+  setNewCommentText,
+  handleAddComment,
 }) => {
   if (userAudioTourQuery.isLoading || userAudioTourQuery.isRefetching) {
     return <div>Loading...</div>;
@@ -49,17 +52,19 @@ const UpdateWatchUserAudioTourView = ({
       </div>
       <div className={style.tags}>
         <h3>Tags:</h3>
-        {tags.map((tag) => (
-          <span key={tag.id} className={style.tagItem}>
-            {tag.name}
-            <button
-              onClick={() => onRemoveTag(tag.id)}
-              className={style.deleteButton}
-            >
-              <img src={Cancel} alt="cancel" />
-            </button>
-          </span>
-        ))}
+        <div className={style.tags_container}>
+          {tags.map((tag) => (
+            <div key={tag.id} className={style.tagItem}>
+              <span>{tag.name}</span>
+              <button
+                onClick={() => onRemoveTag(tag.id)}
+                className={style.deleteButton}
+              >
+                <img src={Cancel} alt="cancel" />
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
       <form onSubmit={onAddTag}>
         <div className={style.tagInputContainer}>
@@ -102,25 +107,29 @@ const UpdateWatchUserAudioTourView = ({
         {showComments ? "Hide Comments" : "Show Comments"}
       </button>
 
-      {/* Если комментарии отображены, показываем их */}
       {showComments && (
         <div className={style.comments}>
           <h3 className={style.commentsTitle}>Comments:</h3>
           {comments.map((comment) => (
             <div key={comment.id} className={style.comment}>
+              <p className={style.commentUser}>{`${comment.user.name} ${comment.user.lastname}`}</p>
               <p className={style.commentText}>{comment.text}</p>
-              {/* Дополнительные детали комментария, если нужно */}
             </div>
           ))}
-          {/* Форма для добавления нового комментария */}
           <form
             className={style.commentForm}
             onSubmit={(e) => {
               e.preventDefault();
-              onAddComment(e.target.comment.value);
+              handleAddComment(newCommentText);
             }}
           >
-            <input className={style.commentInput} type="text" name="comment" />
+            <input
+              className={style.commentInput}
+              type="text"
+              value={newCommentText}
+              onChange={(e) => setNewCommentText(e.target.value)}
+              placeholder="Enter your comment"
+            />
             <button className={style.commentButton} type="submit">
               Add Comment
             </button>

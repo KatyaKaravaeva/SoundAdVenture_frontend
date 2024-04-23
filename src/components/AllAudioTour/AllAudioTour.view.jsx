@@ -56,7 +56,7 @@ const AllAudioTourView = ({
               <strong>Address:</strong> {tour.address}
             </p>
             <Link
-              to={`/audio-tour/${tour.audioTourId}`}
+              to={`/audio_tour/${tour.audioTourId}`}
               className={style.button}
             >
               View Details

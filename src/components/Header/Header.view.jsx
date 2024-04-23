@@ -36,6 +36,7 @@ const HeaderView = ({ exit }) => {
               <NavLink to={All_AUDIO_TOUR}>All Audio tours</NavLink>
               <NavLink to={USER_AUDIO_TOUR}>My Audio tours</NavLink>
               <NavLink to={AUDIO_TOUR_BOOKMARK}>Audio tour bookmarks</NavLink>
+              <NavLink to="#">Audio tour categories</NavLink>
               <NavLink to="#">Сourses</NavLink>
               <NavLink to="#">Сourses bookmarks</NavLink>
             </div>
