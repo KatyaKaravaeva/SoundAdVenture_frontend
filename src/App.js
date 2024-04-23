@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { $authHost } from "./services/api.service";
 import { setUserData } from "./redux/actions/userActions";
-//TODO убрать
-// import MainPage from "./components/MainPage";
 
 const App = () => {
   const dispatch = useDispatch();

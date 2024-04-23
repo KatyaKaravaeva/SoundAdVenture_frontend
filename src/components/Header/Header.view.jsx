@@ -10,6 +10,7 @@ import {
   All_AUDIO_TOUR,
   USER_AUDIO_TOUR,
   AUDIO_TOUR_BOOKMARK,
+  CATEGORIES_TOUR,
 } from "../../navigation/routes";
 
 import style from "../Header/Header.module.css";
@@ -36,7 +37,7 @@ const HeaderView = ({ exit }) => {
               <NavLink to={All_AUDIO_TOUR}>All Audio tours</NavLink>
               <NavLink to={USER_AUDIO_TOUR}>My Audio tours</NavLink>
               <NavLink to={AUDIO_TOUR_BOOKMARK}>Audio tour bookmarks</NavLink>
-              <NavLink to="#">Audio tour categories</NavLink>
+              <NavLink to={CATEGORIES_TOUR}>Audio tour categories</NavLink>
               <NavLink to="#">Сourses</NavLink>
               <NavLink to="#">Сourses bookmarks</NavLink>
             </div>
