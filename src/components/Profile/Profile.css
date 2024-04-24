@@ -1,0 +1,35 @@
+.profile_light {
+  background: linear-gradient(rgb(83, 140, 167), rgba(255, 218, 218, 0.829));
+}
+.profile_light_data {
+  background: linear-gradient(
+    rgba(83, 140, 167, 0.2),
+    /* Уменьшаем прозрачность цвета */ rgba(255, 255, 255, 0.2)
+  );
+  border-radius: 10px; /* Задаем желаемый радиус скругления углов */
+  backdrop-filter: blur(10px); /* Применяем размытие к фону формы */
+}
+
+.profile_button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-dark5);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.profile_button:hover {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-dark3-header-active-hover);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}

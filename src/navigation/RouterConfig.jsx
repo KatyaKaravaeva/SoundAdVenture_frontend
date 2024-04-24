@@ -11,6 +11,7 @@ import UserAudioTour from "../components/UserAudioTour";
 import UpdateWatchUserAudioTour from "../components/UpdateWatchUserAudioTour";
 import AllAudioTourBookMark from "../components/AllAudioTourBookMark";
 import Categories from "../components/Categories";
+import ChooseCategoryAudioTours from "../components/ChooseCategoryAudioTours";
 
 import {
   ROOT,
@@ -112,6 +113,14 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <Categories />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={`/category/:id`}
+        element={
+          <RequiredAuth>
+            <ChooseCategoryAudioTours />
           </RequiredAuth>
         }
       />

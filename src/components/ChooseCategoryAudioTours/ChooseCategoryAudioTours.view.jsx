@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
-import style from "./AllAudioTourBookMark.module.css";
-import BookMark from "../../asserts/images/bookmarl.svg";
-import AddedBookMark from "../../asserts/images/added_bookmark.svg";
-import { All_AUDIO_TOUR } from "../../navigation/routes";
+import style from "./ChooseCategoryAudioTours.module.css";
 
-const AllAudioTourBookMarkView = ({
-  AllAudioTourBookMarkQuery,
+const ChooseCategoryAudioToursView = ({
+  chooseCategoryAudioToursQuery,
   audioTours,
 }) => {
   if (
-    AllAudioTourBookMarkQuery.isLoading ||
-    AllAudioTourBookMarkQuery.isRefetching
+    chooseCategoryAudioToursQuery.isLoading ||
+    chooseCategoryAudioToursQuery.isRefetching
   ) {
     return (
       <div>
@@ -18,18 +15,7 @@ const AllAudioTourBookMarkView = ({
       </div>
     );
   }
-  if (audioTours.length === 0) {
-    return (
-      <div>
-        <div class="alert alert-dark" role="alert">
-          <span>Здесь пусто. </span>
-          <Link to={All_AUDIO_TOUR} class="alert-link">
-            Посмотреть все аудиоэкскурсии
-          </Link>
-        </div>
-      </div>
-    );
-  }
+
   return (
     <div className={style.container}>
       {audioTours.map((tour, index) => (
@@ -73,4 +59,4 @@ const AllAudioTourBookMarkView = ({
   );
 };
 
-export default AllAudioTourBookMarkView;
+export default ChooseCategoryAudioToursView;

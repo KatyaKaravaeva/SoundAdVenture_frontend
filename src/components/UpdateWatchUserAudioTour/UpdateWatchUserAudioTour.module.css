@@ -4,7 +4,7 @@
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #f8f8f8;
+  background-color: #5656567d;
 }
 
 .cardImage {
@@ -228,6 +228,7 @@
 
 .comments {
   margin-top: 20px;
+  color:white;
 }
 
 .commentsTitle {
@@ -239,6 +240,8 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
+  background-color: #5656568f;
+  color: white;
 }
 
 .commentUser {
@@ -252,6 +255,7 @@
 .commentForm {
   display: flex; /* Используем flexbox */
   align-items: center; /* Выравниваем элементы по вертикали */
+  
 }
 
 .commentInput {

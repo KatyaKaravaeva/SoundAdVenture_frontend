@@ -55,21 +55,21 @@ const UserAudioTourView = ({
                 <strong>Address:</strong> {tour.address}
               </p>
             </div>
-            <div className={style.cardContentLink}>
-              <div className={style.buttonsContainer}>
+            <div className={style.buttonsContainer}>
+              <div className={style.cardContentLink}>
                 <Link
                   to={`${AUDIO_TOUR}/${tour.audioTourId}`}
                   className={style.button}
                 >
                   View Details
                 </Link>
-                <button
-                  onClick={() => onDeleteTour(tour.audioTourId)}
-                  className={style.deleteButton}
-                >
-                  <img src={Cancel} alt="cancel" />
-                </button>
               </div>
+              <button
+                onClick={() => onDeleteTour(tour.audioTourId)}
+                className={style.deleteButton}
+              >
+                <img src={Cancel} alt="cancel" />
+              </button>
             </div>
           </div>
         </div>

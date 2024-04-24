@@ -51,7 +51,7 @@ const UpdateWatchUserAudioTourView = ({
         )}
       </div>
       <div className={style.tags}>
-        <h3>Tags:</h3>
+        {/* <h3>Tags:</h3> */}
         <div className={style.tags_container}>
           {tags.map((tag) => (
             <div key={tag.id} className={style.tagItem}>
@@ -110,9 +110,10 @@ const UpdateWatchUserAudioTourView = ({
       {showComments && (
         <div className={style.comments}>
           <h3 className={style.commentsTitle}>Comments:</h3>
+          {console.log(comments)}
           {comments.map((comment) => (
             <div key={comment.id} className={style.comment}>
-              <p className={style.commentUser}>{`${comment.user.name} ${comment.user.lastname}`}</p>
+              <p className={style.commentUser}>{`${comment.user.name ?? " "} ${comment.user.lastname ?? " "}`}</p>
               <p className={style.commentText}>{comment.text}</p>
             </div>
           ))}

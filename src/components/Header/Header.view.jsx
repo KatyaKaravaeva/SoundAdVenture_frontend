@@ -3,7 +3,12 @@ import { useSelector } from "react-redux";
 import Logo from "../../asserts/images/logo_dip.png";
 import Exit from "../../asserts/images/logout.svg";
 import User from "../../asserts/images/account.svg";
-
+import CategoriesLogo from "../../asserts/images/category.svg";
+import AddLogo from "../../asserts/images/add_circle.svg";
+import AllLogo from "../../asserts/images/dictionary.svg";
+import BookMarkLogo from "../../asserts/images/bookmarks.svg";
+import UserAudioTours from "../../asserts/images/contact.svg";
+import Courses from "../../asserts/images/school.svg";
 import {
   PERSONAL_ACCOUNT,
   CREATE_AUDIO_TOUR,
@@ -19,7 +24,6 @@ const HeaderView = ({ exit }) => {
   const userAuthentication = useSelector((state) => state.user.isAuth);
   return (
     <>
-      {}
       <div className={style.header}>
         <NavLink to="/" className={style.logo_header}>
           <img src={Logo} alt="Logo VF" className={style.img_logo_header} />
@@ -27,19 +31,45 @@ const HeaderView = ({ exit }) => {
         {userAuthentication ? (
           <>
             <div className={style.navigation_header}>
-              <NavLink to="/" className={style.active}>
+              <NavLink to="/" className={style.active_header}>
                 Home
               </NavLink>
               <NavLink to={PERSONAL_ACCOUNT}>
                 <img className={style.user} src={User} />
               </NavLink>
-              <NavLink to={CREATE_AUDIO_TOUR}>Create Audio tours</NavLink>
-              <NavLink to={All_AUDIO_TOUR}>All Audio tours</NavLink>
-              <NavLink to={USER_AUDIO_TOUR}>My Audio tours</NavLink>
-              <NavLink to={AUDIO_TOUR_BOOKMARK}>Audio tour bookmarks</NavLink>
-              <NavLink to={CATEGORIES_TOUR}>Audio tour categories</NavLink>
-              <NavLink to="#">Сourses</NavLink>
-              <NavLink to="#">Сourses bookmarks</NavLink>
+              <div className={style.tours}>
+                <NavLink to={CREATE_AUDIO_TOUR}>
+                  <img className={style.user} src={AddLogo} />
+                </NavLink>
+                <NavLink to={All_AUDIO_TOUR}>
+                  <img className={style.user} src={AllLogo} />
+                </NavLink>
+                <NavLink to={USER_AUDIO_TOUR}>
+                  <img className={style.user} src={UserAudioTours} />
+                </NavLink>
+                <NavLink to={AUDIO_TOUR_BOOKMARK}>
+                  <img className={style.user} src={BookMarkLogo} />
+                </NavLink>
+                <NavLink to={CATEGORIES_TOUR}>
+                  {" "}
+                  <img className={style.user} src={CategoriesLogo} />
+                </NavLink>
+              </div>
+              <div className={style.courses}>
+                <NavLink to="#">
+                  <img className={style.user} src={AddLogo} />
+                </NavLink>
+                <NavLink to="#">
+                  <img className={style.user} src={Courses} />
+                </NavLink>
+                <NavLink to="#">
+                  <img className={style.user} src={BookMarkLogo} />
+                </NavLink>
+                <NavLink to="#">
+                  {" "}
+                  <img className={style.user} src={CategoriesLogo} />
+                </NavLink>
+              </div>
               <button className={style.header__exit} onClick={exit}>
                 <img src={Exit} />
               </button>

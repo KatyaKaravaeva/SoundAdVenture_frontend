@@ -1,68 +1,71 @@
-.img_logo_header {
-  margin-top: 5px;
-  width: 145px;
+/* Header.module.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #a59c9c;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.header,
+
+.logo_header {
+  text-decoration: none;
+}
+
+.img_logo_header {
+  width: 120px;
+  height: auto;
+}
+
 .navigation_header {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
-.header {
-  background-color: var(--color-dark3-header);
-  justify-content: space-between;
-  padding: 0 10%;
-  height: 3.6em;
-  box-shadow: 1px 1px 4px var(--color-dark4);
-}
-.navigation_header {
-  gap: 3em;
-  z-index: 2;
-}
-.content {
-  padding-top: 5em;
-  text-align: center;
-  height: 100vh;
-  transition: 1s;
-}
-.navigation_header {
-  gap: 3em;
-  z-index: 2;
-}
+
 .navigation_header a {
   text-decoration: none;
-  color: var(--color-purple);
-  transition: 1s;
+  color: #333;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.navigation_header a.active {
   font-weight: bold;
-  color: var(--color-white);
-}
-.navigation_header a:hover {
-  color: var(--color-white);
-}
-.active {
-  background: var(--color-dark3-header-active);
-  padding: 10px;
-  border-radius: 10px;
-}
-.btn_icon_header {
-  background: transparent;
-  border: none;
-  color: var(--color-white);
-  cursor: pointer;
-  display: none;
-}
-
-.header__exit {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.header__exit img {
-  height: 44px;
 }
 
 .user {
-  width: 44px;
+  width: 40px;
+  height: auto;
+  margin-left: 10px;
+}
+
+.header__exit {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.header__exit img {
+  margin-left: 50px;
+  width: 40px;
+  height: 40px;
+}
+
+.tours {
+  border-right: 1px solid #ccc; /* добавляем границу справа для раздела tour */
+  padding-right: 10px; /* добавляем отступ справа для раздела tour */
+}
+
+.courses {
+  padding-left: 10px; /* добавляем отступ слева для раздела courses */
+}
+
+.active_header {
+  display: inline-block;
+  font-weight: bold;
+  background-color: #6b616186;
+  border-radius: 4px;
+  padding: 9px;
+  text-decoration: underline;
 }
