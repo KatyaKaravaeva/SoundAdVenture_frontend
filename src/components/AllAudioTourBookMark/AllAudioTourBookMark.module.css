@@ -12,6 +12,9 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   background: linear-gradient(rgb(83, 140, 167), rgba(222, 186, 186, 0.901));
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .card:hover {
@@ -145,5 +148,15 @@
 
 .cardContent {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
+.cardContentData {
+  flex-grow: 1;
+}
+
+.cardContentLink {
+  margin-top: auto;
+}

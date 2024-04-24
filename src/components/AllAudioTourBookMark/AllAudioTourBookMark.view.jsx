@@ -5,9 +5,12 @@ import AddedBookMark from "../../asserts/images/added_bookmark.svg";
 
 const AllAudioTourBookMarkView = ({
   AllAudioTourBookMarkQuery,
-  audioTours
+  audioTours,
 }) => {
-  if (AllAudioTourBookMarkQuery.isLoading || AllAudioTourBookMarkQuery.isRefetching) {
+  if (
+    AllAudioTourBookMarkQuery.isLoading ||
+    AllAudioTourBookMarkQuery.isRefetching
+  ) {
     return (
       <div>
         <h1>loading...</h1>
@@ -33,20 +36,24 @@ const AllAudioTourBookMarkView = ({
             )}
           </div>
           <div className={style.cardContent}>
-            <h2>{tour.title}</h2>
-            <p>{tour.description}</p>
-            <p>
-              <strong>Place:</strong> {tour.place}
-            </p>
-            <p>
-              <strong>Address:</strong> {tour.address}
-            </p>
-            <Link
-              to={`/audio-tour/${tour.audioTourId}`}
-              className={style.button}
-            >
-              View Details
-            </Link>
+            <div className={style.cardContentData}>
+              <h2>{tour.title}</h2>
+              <p>{tour.description}</p>
+              <p>
+                <strong>Place:</strong> {tour.place}
+              </p>
+              <p>
+                <strong>Address:</strong> {tour.address}
+              </p>
+            </div>
+            <div className={style.cardContentLink}>
+              <Link
+                to={`/audio-tour/${tour.audioTourId}`}
+                className={style.button}
+              >
+                View Details
+              </Link>
+            </div>
           </div>
         </div>
       ))}

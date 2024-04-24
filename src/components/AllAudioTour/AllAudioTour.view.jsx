@@ -11,8 +11,10 @@ const AllAudioTourView = ({
 }) => {
   if (AllAudioTourQuery.isLoading || AllAudioTourQuery.isRefetching) {
     return (
-      <div>
-        <h1>loading...</h1>
+      <div className="center">
+        <div className="spinner-border spinner-border-lg" role="status">
+          <span className="visually-hidden">Загрузка...</span>
+        </div>
       </div>
     );
   }
@@ -47,20 +49,24 @@ const AllAudioTourView = ({
             </button>
           </div>
           <div className={style.cardContent}>
-            <h2>{tour.title}</h2>
-            <p>{tour.description}</p>
-            <p>
-              <strong>Place:</strong> {tour.place}
-            </p>
-            <p>
-              <strong>Address:</strong> {tour.address}
-            </p>
-            <Link
-              to={`/audio_tour/${tour.audioTourId}`}
-              className={style.button}
-            >
-              View Details
-            </Link>
+            <div className={style.cardContentData}>
+              <h2>{tour.title}</h2>
+              <p>{tour.description}</p>
+              <p>
+                <strong>Place:</strong> {tour.place}
+              </p>
+              <p>
+                <strong>Address:</strong> {tour.address}
+              </p>
+            </div>
+            <div className={style.cardContentLink}>
+              <Link
+                to={`/audio_tour/${tour.audioTourId}`}
+                className={style.button}
+              >
+                View Details
+              </Link>
+            </div>
           </div>
         </div>
       ))}

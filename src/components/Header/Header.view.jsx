@@ -40,10 +40,10 @@ const HeaderView = ({ exit }) => {
               <NavLink to={CATEGORIES_TOUR}>Audio tour categories</NavLink>
               <NavLink to="#">Сourses</NavLink>
               <NavLink to="#">Сourses bookmarks</NavLink>
+              <button className={style.header__exit} onClick={exit}>
+                <img src={Exit} />
+              </button>
             </div>
-            <button className={style.header__exit} onClick={exit}>
-              <img src={Exit} />
-            </button>
           </>
         ) : null}
       </div>
