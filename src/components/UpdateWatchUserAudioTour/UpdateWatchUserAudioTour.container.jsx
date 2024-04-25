@@ -16,7 +16,7 @@ export const UpdateWatchUserAudioTourContainer = () => {
   const [newCommentText, setNewCommentText] = useState("");
 
   const userAudioTourQuery = useQuery(
-    ["updateUserAudioToursData"],
+    ["updateWatchUserAudioToursData"],
     async () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/AudioTour/${id}`
@@ -40,7 +40,7 @@ export const UpdateWatchUserAudioTourContainer = () => {
         audioTourId: audioTour.id,
         name: tagInput,
       });
-      setTags([...tags, data]);
+      setTags(data);
       setTagInput("");
     } catch (error) {
       console.error("Failed to add tag:", error);

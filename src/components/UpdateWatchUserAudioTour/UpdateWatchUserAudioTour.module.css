@@ -132,7 +132,7 @@
 }
 
 .addButton:hover {
-  background-color: #0056b3;
+  background-color: #7f8c99;
 }
 
 .deleteButton {
@@ -173,7 +173,7 @@
 }
 
 .setCategoryButton:hover {
-  background-color: #0056b3;
+  background-color: #7f8c99;
 }
 
 .cardTitle {
@@ -273,13 +273,15 @@
   font-size: 16px; /* Увеличиваем размер шрифта */
   font-weight: bold;
   color: #fff;
-  background-color: #7d9daa ;
+  background-color: #8697a8 ;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
+.commentButton:hover {
+  background-color: #7f8c99 ;
+}
 
 .setComments {
   padding: 10px 20px;
@@ -295,5 +297,5 @@
 }
 
 .setComments:hover {
-  background-color: #0056b3;
+  background-color: #7f8c99;
 }
