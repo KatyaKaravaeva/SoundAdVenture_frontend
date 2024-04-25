@@ -24,7 +24,7 @@ export const AllAudioTourContainer = () => {
 
       setAudioTours(data);
       setBookmarks(bookmarksMap);
-
+      console.log(bookmarksMap)
       return data;
     },
     {

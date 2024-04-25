@@ -7,6 +7,8 @@ import { All_AUDIO_TOUR } from "../../navigation/routes";
 const AllAudioTourBookMarkView = ({
   AllAudioTourBookMarkQuery,
   audioTours,
+  makeBookmark,
+  bookmarks,
 }) => {
   if (
     AllAudioTourBookMarkQuery.isLoading ||
@@ -46,6 +48,18 @@ const AllAudioTourBookMarkView = ({
                 <span className={style.placeholderText}>No Image</span>
               </div>
             )}
+            <button
+              className={`${style.bookmark_btn} ${
+                bookmarks[tour.audioTourId] ? style.bookmarked : ""
+              }`}
+              onClick={() => makeBookmark(tour.audioTourId)}
+            >
+              {bookmarks[tour.audioTourId] ? (
+                <img src={AddedBookMark} className={style.addedBookmarkIcon} />
+              ) : (
+                <img src={BookMark} className={style.bookmarkIcon} />
+              )}
+            </button>
           </div>
           <div className={style.cardContent}>
             <div className={style.cardContentData}>

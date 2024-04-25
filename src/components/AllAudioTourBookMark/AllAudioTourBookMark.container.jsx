@@ -57,6 +57,9 @@ export const AllAudioTourBookMarkContainer = () => {
           ...prev,
           [audioTourId]: false,
         }));
+        setAudioTours((prevAudioTours) =>
+          prevAudioTours.filter((tour) => tour.audioTourId !== audioTourId)
+        );
       } else {
         await $authHost.post(
           `${process.env.REACT_APP_URL}/BookMark/${audioTourId}`
