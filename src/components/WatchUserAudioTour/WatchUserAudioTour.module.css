@@ -1,17 +1,8 @@
 .container {
-  display: flex;
-}
-.container_right {
-  flex: 1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #5656567d;
-  border-radius: 4px;
-}
-.container_left {
-  flex: 1;
   max-width: 700px;
+  margin: 10px auto;
   padding: 30px;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #5656567d;
 }
@@ -73,7 +64,7 @@
 }
 
 .addCategoryButton:hover {
-  background-color: #7f8c99;
+  background-color: #0056b3;
 }
 
 .tagInput,
@@ -120,7 +111,7 @@
 }
 
 .tagItem:hover {
-  background-color: #7f8c99;
+  background-color: #0056b3;
 }
 
 .tagInputContainer {
@@ -237,7 +228,7 @@
 
 .comments {
   margin-top: 20px;
-  color: white;
+  color:white;
 }
 
 .commentsTitle {
@@ -264,6 +255,7 @@
 .commentForm {
   display: flex; /* Используем flexbox */
   align-items: center; /* Выравниваем элементы по вертикали */
+  
 }
 
 .commentInput {
@@ -281,14 +273,14 @@
   font-size: 16px; /* Увеличиваем размер шрифта */
   font-weight: bold;
   color: #fff;
-  background-color: #8697a8;
+  background-color: #8697a8 ;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 .commentButton:hover {
-  background-color: #7f8c99;
+  background-color: #7f8c99 ;
 }
 
 .setComments {
@@ -305,76 +297,5 @@
 }
 
 .setComments:hover {
-  background-color: #7f8c99;
-}
-
-.step_container {
-  border: 1px solid var(--color-blue);
-  border-radius: 15px;
-  padding: 30px;
-  margin-bottom: 30px;
-  background-color: #c8d2dc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 7% 7% 3% 7%;
-}
-
-.step_title {
-  margin-bottom: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-}
-
-.button_container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.button_step {
-  padding: 10px 24px;
-  border: 2px solid transparent;
-  border-radius: 30px;
-  background-color: var(--color-blue);
-  color: #fff;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  text-transform: uppercase;
-  outline: none;
-}
-
-.button_step:hover {
-  background-color: #7f8c99;
-}
-
-.button_step:focus {
-  border-color: #5a6978;
-  box-shadow: 0 0 0 3px #505e6b;
-}
-
-.audio {
-  margin-top: 20px;
-  margin: 0 10%;
-}
-
-.audio_input, .picture_input {
-  margin-right: 10px;
-  border: 1px solid var(--color-blue);
-  padding: 8px;
-  border-radius: 5px;
-}
-
-.button_add {
-  background-color: var(--color-blue);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.button_add:hover {
   background-color: #7f8c99;
 }

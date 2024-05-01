@@ -12,6 +12,7 @@ import UpdateWatchUserAudioTour from "../components/UpdateWatchUserAudioTour";
 import AllAudioTourBookMark from "../components/AllAudioTourBookMark";
 import Categories from "../components/Categories";
 import ChooseCategoryAudioTours from "../components/ChooseCategoryAudioTours";
+import WatchUserAudioTour from "../components/WatchUserAudioTour";
 
 import {
   ROOT,
@@ -24,6 +25,7 @@ import {
   AUDIO_TOUR,
   AUDIO_TOUR_BOOKMARK,
   CATEGORIES_TOUR,
+  WATCH_TOUR,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -55,7 +57,6 @@ const RouterConfig = () => {
           </RequiredNotAuth>
         }
       />
-
       <Route
         path={PERSONAL_ACCOUNT}
         element={
@@ -64,7 +65,6 @@ const RouterConfig = () => {
           </RequiredAuth>
         }
       />
-
       <Route
         path={CREATE_AUDIO_TOUR}
         element={
@@ -73,7 +73,6 @@ const RouterConfig = () => {
           </RequiredAuth>
         }
       />
-
       <Route
         path={All_AUDIO_TOUR}
         element={
@@ -82,7 +81,6 @@ const RouterConfig = () => {
           </RequiredAuth>
         }
       />
-
       <Route
         path={USER_AUDIO_TOUR}
         element={
@@ -91,7 +89,6 @@ const RouterConfig = () => {
           </RequiredAuth>
         }
       />
-
       <Route
         path={`${AUDIO_TOUR}/:id`}
         element={
@@ -121,6 +118,14 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <ChooseCategoryAudioTours />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={`/audio_tour_watch/:id`}
+        element={
+          <RequiredAuth>
+            <WatchUserAudioTour />
           </RequiredAuth>
         }
       />

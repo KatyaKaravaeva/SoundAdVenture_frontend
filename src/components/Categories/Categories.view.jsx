@@ -30,10 +30,10 @@ const CategoriesView = ({ categoriesQuery }) => {
       <h2>Categories</h2>
       <ul className={style.categoryList}>
         {console.log(data)}
-        {data.map((category) => (
-          <li key={category.audioTourId} className={style.categoryItem}>
-            <Link to={`/category/${category.audioTourId}`} className={style.categoryLink}>
-              {category.name}
+        {data.map((category, index) => (
+          <li key={index} className={style.categoryItem}>
+            <Link to={`/category/${category}`} className={style.categoryLink}>
+              {category}
             </Link>
           </li>
         ))}

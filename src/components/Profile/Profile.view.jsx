@@ -94,7 +94,7 @@ const ProfileView = ({
             />
           </div>
           <button
-            type="button"
+            type="submit"
             className="btn profile_button w-100"
             onClick={() => setIsActive((prev) => !prev)}
           >

@@ -1,0 +1,72 @@
+/* style for the editor container */
+.react-quill {
+  height: 400px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+}
+
+/* style for the toolbar */
+.ql-toolbar {
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 5px 5px 0 0;
+}
+
+/* style for the toolbar buttons */
+.ql-toolbar button {
+  background-color: transparent;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 2px 10px;
+  transition: background-color 0.2s ease;
+}
+
+/* style for the active toolbar button */
+.ql-toolbar button:hover,
+.ql-toolbar button.ql-active {
+  background-color: #eaeaea;
+  border-radius: 3px;
+}
+
+/* style for the editor content */
+.ql-editor {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px;
+  height: 100%;
+  background-color: #fff;
+  color: #000;
+}
+
+/* style for the placeholder text */
+.ql-editor .ql-blank::before {
+  color: #999;
+  content: attr(data-placeholder);
+  font-style: italic;
+  pointer-events: none;
+  position: absolute;
+}
+
+/* style for the editor when it is disabled */
+.ql-disabled .ql-toolbar button,
+.ql-disabled .ql-editor {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* style for the editor when it is focused */
+.ql-container:focus-within .ql-toolbar {
+  border-color: #2aff7f;
+  box-shadow: 0px 0px 5px 0px #2aff9c;
+}
+
+/* style for the toolbar buttons when they are disabled */
+.ql-toolbar button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}

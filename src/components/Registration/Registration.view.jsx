@@ -45,7 +45,7 @@ const RegistrationView = ({ handleSubmit }) => {
 
           <div className={style.input_box}>
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               name="registration[password]"
               required

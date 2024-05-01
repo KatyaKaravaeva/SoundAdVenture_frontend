@@ -2,7 +2,9 @@ import { useQuery } from "react-query";
 import { $authHost } from "../../services/api.service";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import React, { useRef } from "react";
 import UpdateWatchUserAudioTourView from "./UpdateWatchUserAudioTour.view";
+import Modal from "../Modal/Modal";
 
 export const UpdateWatchUserAudioTourContainer = () => {
   const { id } = useParams();
@@ -14,6 +16,29 @@ export const UpdateWatchUserAudioTourContainer = () => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
   const [newCommentText, setNewCommentText] = useState("");
+  const [addArticle, setAddArticle] = useState(false);
+  const [addAudio, setAddAudio] = useState(false);
+  const [addPicture, setAddPicture] = useState(false);
+  const [isModalOpenNotAll, setIsModalOpenNotAll] = useState(false);
+
+  const fileInputRef = useRef(null);
+
+  const handleModalCloseNotAll = () => {
+    setIsModalOpenNotAll(false);
+  };
+
+  const uploadPictureFile = async () => {
+    const file = fileInputRef.current.files[0];
+    const formData = new FormData();
+    formData.append("formFile", file);
+    try {
+      const { data } = await $authHost.post(`PictureStep/${id}`, formData);
+      setIsModalOpenNotAll((prev) => !prev);
+      setAddAudio(false);
+    } catch (error) {
+      console.error("Ошибка при загрузке картинки:", error.message);
+    }
+  };
 
   const userAudioTourQuery = useQuery(
     ["updateWatchUserAudioToursData"],
@@ -90,27 +115,56 @@ export const UpdateWatchUserAudioTourContainer = () => {
     }
   };
 
+  const uploadAudioFile = async () => {
+    const fileInput = document.querySelector('input[type="file"]');
+    const formData = new FormData();
+    formData.append("formFile", fileInput.files[0]);
+    try {
+      const { data } = await $authHost.post(`AudioStep/${id}`, formData);
+      setIsModalOpenNotAll((prev) => !prev);
+      setAddAudio(false);
+    } catch (error) {
+      console.error("Ошибка при загрузке аудио файла:", error.message);
+    }
+  };
+
   return (
-    <UpdateWatchUserAudioTourView
-      userAudioTourQuery={userAudioTourQuery}
-      audioTour={audioTour}
-      tags={tags}
-      category={category}
-      comments={comments}
-      onAddTag={handleAddTag}
-      onRemoveTag={handleRemoveTag}
-      onSetCategory={handleSetCategory}
-      onRemoveCategory={handleRemoveCategory}
-      setCategoryInput={setCategoryInput}
-      categoryInput={categoryInput}
-      tagInput={tagInput}
-      setTagInput={setTagInput}
-      onAddComment={handleAddComment}
-      showComments={showComments}
-      setShowComments={setShowComments}
-      newCommentText={newCommentText}
-      setNewCommentText={setNewCommentText}
-      handleAddComment={handleAddComment}
-    />
+    <>
+      <UpdateWatchUserAudioTourView
+        userAudioTourQuery={userAudioTourQuery}
+        audioTour={audioTour}
+        tags={tags}
+        category={category}
+        comments={comments}
+        onAddTag={handleAddTag}
+        onRemoveTag={handleRemoveTag}
+        onSetCategory={handleSetCategory}
+        onRemoveCategory={handleRemoveCategory}
+        setCategoryInput={setCategoryInput}
+        categoryInput={categoryInput}
+        tagInput={tagInput}
+        setTagInput={setTagInput}
+        onAddComment={handleAddComment}
+        showComments={showComments}
+        setShowComments={setShowComments}
+        newCommentText={newCommentText}
+        setNewCommentText={setNewCommentText}
+        handleAddComment={handleAddComment}
+        setAddArticle={setAddArticle}
+        addArticle={addArticle}
+        setAddAudio={setAddAudio}
+        addAudio={addAudio}
+        uploadAudioFile={uploadAudioFile}
+        addPicture={addPicture}
+        setAddPicture={setAddPicture}
+        fileInputRef={fileInputRef}
+        uploadPictureFile={uploadPictureFile}
+      />
+      {isModalOpenNotAll && (
+        <Modal isOpen={true} isDone={true} onClose={handleModalCloseNotAll}>
+          <p>Шаг добавлен!</p>
+        </Modal>
+      )}
+    </>
   );
 };
