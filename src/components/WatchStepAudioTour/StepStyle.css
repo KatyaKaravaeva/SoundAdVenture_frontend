@@ -1,0 +1,13 @@
+.MuiStep-root {
+  cursor: pointer;
+}
+
+.MuiStep-root:hover .MuiStepIcon-root {
+  color: #555;
+}
+
+.MuiStep-root.Mui-selected .MuiStepIcon-root {
+  color: #853636;
+}
+
+

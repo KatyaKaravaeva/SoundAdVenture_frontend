@@ -1,22 +1,27 @@
 .container {
   display: flex;
-  /* align-items: center;
-  justify-content: space-around;*/
-  background: linear-gradient(rgba(83, 140, 167, 0.346), rgba(255, 218, 218, 0.57));
-} 
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(
+    rgba(83, 140, 167, 0.346),
+    rgba(255, 218, 218, 0.57)
+  ); */
+}
 
 .container_left {
   max-width: 700px;
-  margin: 10px auto;
+  margin: 0 auto;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #5656567d;
-  flex: 1;
 }
 
-.container_right{
-  flex: 1;
+.container_right {
+  min-width: 1000px;
+  min-height: 500px;
 }
 
 .cardImage {
@@ -309,4 +314,73 @@
 
 .setComments:hover {
   background-color: #7f8c99;
+}
+
+/* Добавляем стили для анимации центрирования */
+@keyframes centerAnimation {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Применяем стили к кнопке toggleButton */
+.toggleButton {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff; /* Цвет текста кнопки */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: centerAnimation 0.5s ease-out; /* Добавляем анимацию */
+}
+
+
+/* Дополнительные стили при наведении */
+.toggleButton:hover {
+  background-color: #8697a8; /* Изменение цвета фона при наведении */
+}
+
+/* Дополнительные стили для кнопки внутри контейнера */
+.container .toggleButton {
+  margin: 20px auto; /* Центрируем кнопку по горизонтали */
+  display: block; /* Делаем кнопку блочным элементом */
+}
+
+/* Дополнительные стили для кнопки в правой части контейнера */
+.container_right .toggleButton {
+  margin: 20px auto; /* Центрируем кнопку по горизонтали */
+  display: block; /* Делаем кнопку блочным элементом */
+}
+
+.toggleButton.animated {
+  animation: pulse 3s infinite;
+}
+
+.toggleButton_return {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 6px;
+  border-radius: 50%;
+}
+
+.toggleButton_return img {
+  width: 50px;
+  height: 50px;
+}
+
+.toggleButton_return:hover {
+  background-color: #cccccc78;
+  border-radius: 50%;
 }

@@ -4,6 +4,7 @@ import { $authHost } from "../../services/api.service";
 import { useQuery } from "react-query";
 import { useState } from "react";
 
+
 export const WatchStepAudioTourContainer = () => {
   const { id } = useParams();
   const [activeStep, setActiveStep] = useState(-1);
@@ -22,6 +23,20 @@ export const WatchStepAudioTourContainer = () => {
     async () => {
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/Steps/${id}`
+      );
+      return data;
+    },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const userAudioTourQuery = useQuery(
+    ["updateWatchUserAudioToursTitleData"],
+    async () => {
+      const { data } = await $authHost.get(
+        `${process.env.REACT_APP_URL}/AudioTour/${id}`
       );
       return data;
     },
@@ -58,18 +73,9 @@ export const WatchStepAudioTourContainer = () => {
     }
   };
 
-  // async function getAudio(stepId) {
-  //   try {
-  //     const { data } = await $authHost.get(
-  //       `${process.env.REACT_APP_URL}/AudioStep/${stepId}`
-  //     );
-  //     setAudioStepData(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
   return (
     <WatchStepAudioTourView
+    userAudioTourQuery={userAudioTourQuery}
       userAudioTourStepsListQuery={userAudioTourStepsListQuery}
       activeStep={activeStep}
       handleStepChange={handleStepChange}
