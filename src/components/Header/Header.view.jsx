@@ -22,6 +22,7 @@ import style from "../Header/Header.module.css";
 
 const HeaderView = ({ exit }) => {
   const userAuthentication = useSelector((state) => state.user.isAuth);
+  const userRole = useSelector((state) => state.user.role);
   return (
     <>
       <div className={style.header}>
@@ -38,15 +39,19 @@ const HeaderView = ({ exit }) => {
                 <img className={style.user} src={User} />
               </NavLink>
               <div className={style.tours}>
-                <NavLink to={CREATE_AUDIO_TOUR}>
-                  <img className={style.user} src={AddLogo} />
-                </NavLink>
+                {userRole === "admin" && (
+                  <NavLink to={CREATE_AUDIO_TOUR}>
+                    <img className={style.user} src={AddLogo} />
+                  </NavLink>
+                )}
                 <NavLink to={All_AUDIO_TOUR}>
                   <img className={style.user} src={AllLogo} />
                 </NavLink>
-                <NavLink to={USER_AUDIO_TOUR}>
-                  <img className={style.user} src={UserAudioTours} />
-                </NavLink>
+                {userRole === "admin" && (
+                  <NavLink to={USER_AUDIO_TOUR}>
+                    <img className={style.user} src={UserAudioTours} />
+                  </NavLink>
+                )}
                 <NavLink to={AUDIO_TOUR_BOOKMARK}>
                   <img className={style.user} src={BookMarkLogo} />
                 </NavLink>

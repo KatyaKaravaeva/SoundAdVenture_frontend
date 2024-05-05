@@ -1,10 +1,22 @@
 .container {
+  display: flex;
+  /* align-items: center;
+  justify-content: space-around;*/
+  background: linear-gradient(rgba(83, 140, 167, 0.346), rgba(255, 218, 218, 0.57));
+} 
+
+.container_left {
   max-width: 700px;
   margin: 10px auto;
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #5656567d;
+  flex: 1;
+}
+
+.container_right{
+  flex: 1;
 }
 
 .cardImage {
@@ -228,7 +240,7 @@
 
 .comments {
   margin-top: 20px;
-  color:white;
+  color: white;
 }
 
 .commentsTitle {
@@ -255,7 +267,6 @@
 .commentForm {
   display: flex; /* Используем flexbox */
   align-items: center; /* Выравниваем элементы по вертикали */
-  
 }
 
 .commentInput {
@@ -273,14 +284,14 @@
   font-size: 16px; /* Увеличиваем размер шрифта */
   font-weight: bold;
   color: #fff;
-  background-color: #8697a8 ;
+  background-color: #8697a8;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 .commentButton:hover {
-  background-color: #7f8c99 ;
+  background-color: #7f8c99;
 }
 
 .setComments {

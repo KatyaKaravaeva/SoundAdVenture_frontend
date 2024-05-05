@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { $authHost } from "../../services/api.service";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import React, { useRef } from "react";
 import UpdateWatchUserAudioTourView from "./UpdateWatchUserAudioTour.view";
@@ -20,6 +20,7 @@ export const UpdateWatchUserAudioTourContainer = () => {
   const [addAudio, setAddAudio] = useState(false);
   const [addPicture, setAddPicture] = useState(false);
   const [isModalOpenNotAll, setIsModalOpenNotAll] = useState(false);
+  const [isModalOpenNotUpload, setIsModalOpenNotUpload] = useState(false);
 
   const fileInputRef = useRef(null);
 
@@ -27,14 +28,25 @@ export const UpdateWatchUserAudioTourContainer = () => {
     setIsModalOpenNotAll(false);
   };
 
+  const handleModalCloseNotUpload = () => {
+    setIsModalOpenNotUpload(false);
+  };
+
   const uploadPictureFile = async () => {
     const file = fileInputRef.current.files[0];
+    if (!file) {
+      setIsModalOpenNotUpload((prev) => !prev);
+      return;
+    }
     const formData = new FormData();
     formData.append("formFile", file);
     try {
       const { data } = await $authHost.post(`PictureStep/${id}`, formData);
       setIsModalOpenNotAll((prev) => !prev);
       setAddAudio(false);
+      setAddPicture(false);
+      setAddArticle(false);
+      userAudioTourStepsQuery.refetch();
     } catch (error) {
       console.error("Ошибка при загрузке картинки:", error.message);
     }
@@ -50,6 +62,20 @@ export const UpdateWatchUserAudioTourContainer = () => {
       setCategory(data.category);
       setTags(data.tags);
       setComments(data.comments);
+      return data;
+    },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const userAudioTourStepsQuery = useQuery(
+    ["userAudioTourStepsData"],
+    async () => {
+      const { data } = await $authHost.get(
+        `${process.env.REACT_APP_URL}/Steps/${id}`
+      );
       return data;
     },
     {
@@ -117,12 +143,20 @@ export const UpdateWatchUserAudioTourContainer = () => {
 
   const uploadAudioFile = async () => {
     const fileInput = document.querySelector('input[type="file"]');
+    console.log(fileInput);
+    if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+      setIsModalOpenNotUpload(true);
+      return;
+    }
     const formData = new FormData();
     formData.append("formFile", fileInput.files[0]);
     try {
       const { data } = await $authHost.post(`AudioStep/${id}`, formData);
       setIsModalOpenNotAll((prev) => !prev);
       setAddAudio(false);
+      setAddPicture(false);
+      setAddArticle(false);
+      userAudioTourStepsQuery.refetch();
     } catch (error) {
       console.error("Ошибка при загрузке аудио файла:", error.message);
     }
@@ -159,10 +193,17 @@ export const UpdateWatchUserAudioTourContainer = () => {
         setAddPicture={setAddPicture}
         fileInputRef={fileInputRef}
         uploadPictureFile={uploadPictureFile}
+        userAudioTourStepsQuery={userAudioTourStepsQuery}
+        id={id}
       />
       {isModalOpenNotAll && (
         <Modal isOpen={true} isDone={true} onClose={handleModalCloseNotAll}>
           <p>Шаг добавлен!</p>
+        </Modal>
+      )}
+      {isModalOpenNotUpload && (
+        <Modal isOpen={true} isDone={false} onClose={handleModalCloseNotUpload}>
+          <p>Файл не выбран!</p>
         </Modal>
       )}
     </>

@@ -19,7 +19,9 @@ export const AuthorizationContainer = () => {
         login: target["signIn[login]"].value,
         password: target["signIn[password]"].value,
       });
-      dispatch(setUserData({ ...data.user, isAuth: true }));
+      dispatch(
+        setUserData({ ...data.user, isAuth: true, role: data.user.role })
+      );
       localStorage.setItem("accessToken", data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
     } catch (error) {

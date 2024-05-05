@@ -32,8 +32,15 @@ const UpdateWatchUserAudioTourView = ({
   setAddPicture,
   fileInputRef,
   uploadPictureFile,
+  userAudioTourStepsQuery,
+  id,
 }) => {
-  if (userAudioTourQuery.isLoading || userAudioTourQuery.isRefetching) {
+  if (
+    userAudioTourQuery.isLoading ||
+    userAudioTourQuery.isRefetching ||
+    userAudioTourStepsQuery.isLoading ||
+    userAudioTourStepsQuery.isRefetching
+  ) {
     return <div>Loading...</div>;
   }
 
@@ -151,6 +158,17 @@ const UpdateWatchUserAudioTourView = ({
         )}
       </div>
       <div className={style.container_right}>
+        <div className={style.steps}>
+          {userAudioTourStepsQuery.data.map((step, index) => (
+            <div
+              key={step.id}
+              className={style.stepItem}
+              //onClick={() => handleStepClick(step)}
+            >
+              <div className={style.stepNumber}>{index + 1}</div>
+            </div>
+          ))}
+        </div>
         <div className={style.step_container}>
           <div className={style.step_title}>
             <p>Добавить шаг</p>
@@ -200,7 +218,7 @@ const UpdateWatchUserAudioTourView = ({
             </button>
           </div>
         )}
-        {addArticle && <CreateArticle audioTourId={audioTour.id} />}
+        {addArticle && <CreateArticle audioTourId={id} userAudioTourStepsQuery={userAudioTourStepsQuery} />}
         {addPicture && (
           <div className={style.audio}>
             <input
