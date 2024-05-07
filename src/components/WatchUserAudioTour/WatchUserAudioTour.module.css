@@ -4,10 +4,6 @@
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  /* background: linear-gradient(
-    rgba(83, 140, 167, 0.346),
-    rgba(255, 218, 218, 0.57)
-  ); */
 }
 
 .container_left {
@@ -116,8 +112,8 @@
 }
 
 .tagItem {
-  display: inline-flex; /* Use flexbox for tag items */
-  align-items: center; /* Align items vertically */
+  display: inline-flex;
+  align-items: center;
   background-color: var(--color-blue);
   color: #fff;
   border-radius: 20px;
@@ -128,7 +124,7 @@
 }
 
 .tagItem:hover {
-  background-color: #0056b3;
+  background-color: var(--color-blue);
 }
 
 .tagInputContainer {
@@ -223,7 +219,7 @@
   align-items: center;
   background-color: #8697a8;
   color: #fff;
-  padding: 6px 12px;
+  padding: 9px 12px;
   border-radius: 20px;
   margin-right: 8px;
   font-size: 14px;
@@ -270,23 +266,23 @@
 }
 
 .commentForm {
-  display: flex; /* Используем flexbox */
-  align-items: center; /* Выравниваем элементы по вертикали */
+  display: flex; 
+  align-items: center; 
 }
 
 .commentInput {
   flex: 1;
-  padding: 12px; /* Увеличиваем внутренний отступ */
-  font-size: 16px; /* Увеличиваем размер шрифта */
+  padding: 12px; 
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
-  transition: border-color 0.3s; /* Добавляем плавный переход при изменении цвета границы */
+  transition: border-color 0.3s;
 }
 
 .commentButton {
-  padding: 12px 24px; /* Увеличиваем внутренний отступ */
-  font-size: 16px; /* Увеличиваем размер шрифта */
+  padding: 12px 24px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   background-color: #8697a8;
@@ -310,13 +306,13 @@
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 20px;
+  margin-left: 0;
 }
 
 .setComments:hover {
   background-color: #7f8c99;
 }
 
-/* Добавляем стили для анимации центрирования */
 @keyframes centerAnimation {
   0% {
     transform: translateX(-50%);
@@ -326,35 +322,31 @@
   }
 }
 
-/* Применяем стили к кнопке toggleButton */
 .toggleButton {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #fff; /* Цвет текста кнопки */
+  color: #fff;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  animation: centerAnimation 0.5s ease-out; /* Добавляем анимацию */
+  animation: centerAnimation 0.5s ease-out;
 }
 
-
-/* Дополнительные стили при наведении */
 .toggleButton:hover {
-  background-color: #8697a8; /* Изменение цвета фона при наведении */
+  background-color: #8697a8;
 }
 
-/* Дополнительные стили для кнопки внутри контейнера */
 .container .toggleButton {
-  margin: 20px auto; /* Центрируем кнопку по горизонтали */
-  display: block; /* Делаем кнопку блочным элементом */
+  margin: 20px auto; 
+  display: block;
 }
 
-/* Дополнительные стили для кнопки в правой части контейнера */
+
 .container_right .toggleButton {
-  margin: 20px auto; /* Центрируем кнопку по горизонтали */
-  display: block; /* Делаем кнопку блочным элементом */
+  margin: 20px auto;
+  display: block; 
 }
 
 .toggleButton.animated {

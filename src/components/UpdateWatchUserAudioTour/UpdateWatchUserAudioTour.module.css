@@ -108,8 +108,8 @@
 }
 
 .tagItem {
-  display: inline-flex; /* Use flexbox for tag items */
-  align-items: center; /* Align items vertically */
+  display: inline-flex;
+  align-items: center;
   background-color: var(--color-blue);
   color: #fff;
   border-radius: 20px;
@@ -262,23 +262,23 @@
 }
 
 .commentForm {
-  display: flex; /* Используем flexbox */
-  align-items: center; /* Выравниваем элементы по вертикали */
+  display: flex;
+  align-items: center;
 }
 
 .commentInput {
   flex: 1;
-  padding: 12px; /* Увеличиваем внутренний отступ */
-  font-size: 16px; /* Увеличиваем размер шрифта */
+  padding: 12px;
+  font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
-  transition: border-color 0.3s; /* Добавляем плавный переход при изменении цвета границы */
+  transition: border-color 0.3s;
 }
 
 .commentButton {
-  padding: 12px 24px; /* Увеличиваем внутренний отступ */
-  font-size: 16px; /* Увеличиваем размер шрифта */
+  padding: 12px 24px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   background-color: #8697a8;
@@ -358,7 +358,8 @@
   margin: 0 10%;
 }
 
-.audio_input, .picture_input {
+.audio_input,
+.picture_input {
   margin-right: 10px;
   border: 1px solid var(--color-blue);
   padding: 8px;
@@ -378,7 +379,6 @@
 .button_add:hover {
   background-color: #7f8c99;
 }
-
 
 .steps {
   display: flex;

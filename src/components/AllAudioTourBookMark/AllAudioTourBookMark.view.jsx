@@ -74,7 +74,7 @@ const AllAudioTourBookMarkView = ({
             </div>
             <div className={style.cardContentLink}>
               <Link
-                to={`/audio_tour/${tour.audioTourId}`}
+                to={`/audio_tour_watch/${tour.audioTourId}`}
                 className={style.button}
               >
                 View Details

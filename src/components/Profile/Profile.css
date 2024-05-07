@@ -1,13 +1,15 @@
 .profile_light {
   background: linear-gradient(rgb(83, 140, 167), rgba(255, 218, 218, 0.829));
+  margin: 0 auto;
+  width: 75%;
 }
 .profile_light_data {
   background: linear-gradient(
-    rgba(83, 140, 167, 0.2),
-    /* Уменьшаем прозрачность цвета */ rgba(255, 255, 255, 0.2)
+    rgba(138, 169, 183, 0.06),
+    rgba(255, 255, 255, 0.2)
   );
-  border-radius: 10px; /* Задаем желаемый радиус скругления углов */
-  backdrop-filter: blur(10px); /* Применяем размытие к фону формы */
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
 
 .profile_button {

@@ -78,6 +78,7 @@ const HeaderView = ({ exit }) => {
               <button className={style.header__exit} onClick={exit}>
                 <img src={Exit} />
               </button>
+              
             </div>
           </>
         ) : null}

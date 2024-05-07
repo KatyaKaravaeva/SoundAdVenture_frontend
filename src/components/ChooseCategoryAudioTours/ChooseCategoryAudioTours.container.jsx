@@ -9,7 +9,6 @@ export const ChooseCategoryAudioToursContainer = () => {
   const chooseCategoryAudioToursQuery = useQuery(
     ["userChooseCategoryAudioToursData"],
     async () => {
-      // Получение данных об аудио-турах
       const { data } = await $authHost.get(
         `${process.env.REACT_APP_URL}/Categories/category/${id}`
       );

@@ -11,6 +11,8 @@ export const WatchStepAudioTourContainer = () => {
   const [activeStepType, setActiveStepType] = useState(-1);
   const [articleStepData, setArticleStepData] = useState(null);
   const [audioUrl, setAudioUrl] = useState("");
+  const [pictureUrl, setPictureUrl] = useState(""); 
+
   const handleStepChange = (newStep) => {
     setActiveStep(newStep);
   };
@@ -72,6 +74,22 @@ export const WatchStepAudioTourContainer = () => {
       console.error("Error fetching audio:", error);
     }
   };
+  const getPicture = async (stepId) => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_URL}/PictureStep/${stepId}`
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      setPictureUrl(url); 
+      console.log(pictureUrl)
+    } catch (error) {
+      console.error("Error fetching picture:", error);
+    }
+  };
 
   return (
     <WatchStepAudioTourView
@@ -85,6 +103,8 @@ export const WatchStepAudioTourContainer = () => {
       getArticle={getArticle}
       getAudio={getAudio}
       audioUrl={audioUrl}
+      pictureUrl={pictureUrl} 
+      getPicture={getPicture}
     />
   );
 };

@@ -17,6 +17,8 @@ const WatchStepAudioTourView = ({
   getArticle,
   getAudio,
   audioUrl,
+  pictureUrl,
+  getPicture,
 }) => {
   const [completedSteps, setCompletedSteps] = useState([]);
   const [activeStepId, setActiveStepId] = useState(null);
@@ -37,8 +39,9 @@ const WatchStepAudioTourView = ({
     handleStepChange(index);
     setActiveStepId(index + 1);
     handleStepTypeChange(userAudioTourStepsListQuery.data[index].type);
-    getArticle(userAudioTourStepsListQuery.data[index].id);
-    getAudio(userAudioTourStepsListQuery.data[index].id);
+     getArticle(userAudioTourStepsListQuery.data[index].id);
+     getAudio(userAudioTourStepsListQuery.data[index].id);
+    getPicture(userAudioTourStepsListQuery.data[index].id);
   };
 
   if (
@@ -122,6 +125,14 @@ const WatchStepAudioTourView = ({
                       Your browser does not support the audio element.
                     </audio>
                   )}
+                </div>
+              )}
+              {activeStepType === 3 && (
+                <div>
+                  <div className={style.step_number}>
+                    <p>Шаг {activeStepId}</p>
+                  </div>
+                  {pictureUrl && <img style={{ width: "100%" }} src={pictureUrl} alt="Picture" />}
                 </div>
               )}
             </div>

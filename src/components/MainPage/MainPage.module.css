@@ -24,7 +24,7 @@
   text-align: left;
   padding-top: 64px;
   padding-bottom: 88px;
-  background: linear-gradient(rgb(83, 140, 167), rgba(255, 218, 218, 0.829));
+  background: linear-gradient(rgba(83, 140, 167, 0.688), rgba(255, 218, 218, 0.53));
   height: 100vh;
 }
 
@@ -33,7 +33,7 @@
   padding: 90px 90px;
   min-width: 552px;
   width: 552px;
-  background-color:#fffae986;
+  background-color:#fffae998;
 }
 
 .hero_cta .button:first_child {
@@ -77,23 +77,3 @@
   background: #9e8323;
   background: linear-gradient(65deg, #9e8323 0, #aea37b 100%);
 }
-
-/* @media (max-width: 640px) {
-    .hero-cta {
-      max-width: 280px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero-cta .button {
-      display: flex;
-    }
-    .hero-cta .button + .button {
-      margin-top: 16px;
-    }
-    .hero-figure::after,
-    .hero-figure-box-03,
-    .hero-figure-box-04,
-    .hero-figure-box-09 {
-      display: none;
-    }
-  } */

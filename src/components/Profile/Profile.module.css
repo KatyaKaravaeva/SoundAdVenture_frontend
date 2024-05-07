@@ -10,7 +10,7 @@
   background-color: var(--color-dark5);
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Улучшен тень */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .profile__frame {
@@ -21,17 +21,17 @@
 }
 
 .profile__picture {
-  width: 120px; /* Увеличен размер изображения профиля */
+  width: 120px;
   height: 120px;
   border-radius: 50%;
   margin-right: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для изображения профиля */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .profile__name {
-  font-size: 2rem; /* Увеличен размер имени */
+  font-size: 2rem;
   margin: 0;
-  color: var(--color-dark4); /* Цвет текста, соответствующий Facebook */
+  color: var(--color-dark4);
 }
 
 .profile__info {
@@ -39,20 +39,18 @@
 }
 
 .form-label {
-  font-size: 1rem; /* Увеличен размер метки */
-  margin-bottom: 10px; /* Увеличен отступ между полями */
-  color: var(
-    --color-dark5
-  ); /* Цвет текста, более темный для лучшей читаемости */
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--color-dark5);
 }
 
 .profile__input {
   width: 100%;
-  padding: 12px; /* Увеличен отступ внутри поля ввода */
+  padding: 12px;
   font-size: 1rem;
-  border: 1px solid var(--color-dark3-header); /* Более светлый цвет рамки */
+  border: 1px solid var(--color-dark3-header);
   border-radius: 5px;
-  margin-bottom: 20px; /* Увеличен отступ между полями ввода */
+  margin-bottom: 20px;
 }
 
 .profile__button {

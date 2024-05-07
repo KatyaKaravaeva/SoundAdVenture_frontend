@@ -1,5 +1,3 @@
-/* Header.module.css */
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -53,12 +51,12 @@
 }
 
 .tours {
-  border-right: 1px solid #ccc; /* добавляем границу справа для раздела tour */
-  padding-right: 10px; /* добавляем отступ справа для раздела tour */
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
 }
 
 .courses {
-  padding-left: 10px; /* добавляем отступ слева для раздела courses */
+  padding-left: 10px;
 }
 
 .active_header {

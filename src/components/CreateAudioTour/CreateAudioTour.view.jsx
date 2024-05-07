@@ -8,7 +8,7 @@ const CreateAudioTour = ({
   changeHandler,
 }) => {
   return (
-    <div className="container" style={{ backgroundColor: "rgb(108 147 163 / 77%)", marginTop: "40px", padding: "26px", }}>
+    <div className="container" style={{ width: "60%", backgroundColor: "rgb(108 147 163 / 77%)", marginTop: "40px", padding: "26px", }}>
       <div className="container__main">
         <h1 className="title" style={{ fontSize: "24px", marginBottom: "20px", textAlign: "center" }}>Create Audio Tour</h1>
         <form onSubmit={handleSubmit}>

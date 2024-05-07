@@ -1,31 +1,7 @@
-// import { Link } from "react-router-dom";
-// import styles from "../../assets/styles/articleList.module.css";
 import { Link } from "react-router-dom";
 import style from "./MainPage.module.css";
-// import CommentsIcon from "../../assets/images/comments_icon.svg";
-// import BookMarkAdd from "../../assets/images/bookmark_add.svg";
-// import BookMarkAdded from "../../assets/images/bookmark_added.svg";
 import { All_AUDIO_TOUR } from "../../navigation/routes";
-const MainPageView = (
-  {
-    // handleSubmit,
-    // articles,
-    // mainPageQuery,
-    // isSubscribe,
-    // setIsSubscribe,
-    // makeBookmark,
-    // searchData,
-    // isSearch,
-    // setIsSearch,
-  }
-) => {
-  // if (mainPageQuery.isLoading || mainPageQuery.isRefetching) {
-  //   return (
-  //     <div className={styleLoading.article__loading_container}>
-  //       <div className={styleLoading.article__loading}></div>
-  //     </div>
-  //   );
-  // }
+const MainPageView = () => {
   return (
     <div>
       <section className={style.hero}>
