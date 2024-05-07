@@ -16,6 +16,7 @@ import {
   USER_AUDIO_TOUR,
   AUDIO_TOUR_BOOKMARK,
   CATEGORIES_TOUR,
+  CREATE_COURSE
 } from "../../navigation/routes";
 
 import style from "../Header/Header.module.css";
@@ -41,7 +42,9 @@ const HeaderView = ({ exit }) => {
               <div className={style.tours}>
                 {userRole === "admin" && (
                   <NavLink to={CREATE_AUDIO_TOUR}>
-                    <img className={style.user} src={AddLogo} />
+                    <span>
+                      <img className={style.user} src={AddLogo} />
+                    </span>
                   </NavLink>
                 )}
                 <NavLink to={All_AUDIO_TOUR}>
@@ -61,7 +64,7 @@ const HeaderView = ({ exit }) => {
                 </NavLink>
               </div>
               <div className={style.courses}>
-                <NavLink to="#">
+                <NavLink to={CREATE_COURSE}>
                   <img className={style.user} src={AddLogo} />
                 </NavLink>
                 <NavLink to="#">
@@ -78,7 +81,6 @@ const HeaderView = ({ exit }) => {
               <button className={style.header__exit} onClick={exit}>
                 <img src={Exit} />
               </button>
-              
             </div>
           </>
         ) : null}

@@ -10,3 +10,4 @@ export const AUDIO_TOUR_BOOKMARK = "/audio_tour_bookmark";
 export const CATEGORIES_TOUR = "/categories_tour";
 export const WATCH_TOUR = "/watch_tour";
 export const WATCH_STEP_TOUR = "/watch_step_tour";
+export const CREATE_COURSE = "/create_course";

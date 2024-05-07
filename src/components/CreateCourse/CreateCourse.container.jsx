@@ -1,9 +1,9 @@
 import { useState } from "react";
-import CreateAudioTourView from "./CreateAudioTour.view";
+import CreateCourseView from "./CreateCourse.view";
 import { $authHost } from "../../services/api.service";
 import Compressor from "compressorjs";
 
-export const CreateAudioTourContainer = () => {
+export const CreateCourseContainer = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -27,7 +27,7 @@ export const CreateAudioTourContainer = () => {
     const target = event.target;
     console.log(formData);
     try {
-      const { data } = await $authHost.post("/AudioTour/create", {
+      const { data } = await $authHost.post("/Course/create", {
         ...formData,
       });
       setFormData({
@@ -71,7 +71,7 @@ export const CreateAudioTourContainer = () => {
   }
 
   return (
-    <CreateAudioTourView
+    <CreateCourseView
       formData={formData}
       handleChange={handleChange}
       handleSubmit={handleSubmit}

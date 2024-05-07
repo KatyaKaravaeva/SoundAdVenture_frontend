@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const CreateAudioTour = ({
+const CreateCourse = ({
   formData,
   handleChange,
   handleSubmit,
@@ -11,7 +11,7 @@ const CreateAudioTour = ({
     <div
       className="container"
       style={{
-        width: "67%",
+        width: "60%",
         backgroundColor: "rgb(108 147 163 / 77%)",
         marginTop: "40px",
         padding: "26px",
@@ -26,7 +26,7 @@ const CreateAudioTour = ({
             textAlign: "center",
           }}
         >
-          Create Audio Tour
+          Create Educational Course
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -154,6 +154,7 @@ const CreateAudioTour = ({
             className="button btn btn-primary"
             type="submit"
             style={{
+              marginLeft: "0px",
               display: "block",
               width: "100%",
               padding: "10px",
@@ -163,7 +164,6 @@ const CreateAudioTour = ({
               borderRadius: "4px",
               cursor: "pointer",
               transition: "background-color 0.3s ease",
-              marginLeft: "0px",
             }}
           >
             Save Information
@@ -174,4 +174,4 @@ const CreateAudioTour = ({
   );
 };
 
-export default CreateAudioTour;
+export default CreateCourse;

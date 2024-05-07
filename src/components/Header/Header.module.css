@@ -67,3 +67,15 @@
   padding: 9px;
   text-decoration: underline;
 }
+
+
+.tours img {
+  background-color:#907b3c95;
+  padding: 2px;
+  border-radius: 5px;
+}
+.courses img {
+  background-color:#5777778f;
+  padding: 2px;
+  border-radius: 5px;
+}
