@@ -16,7 +16,9 @@ import {
   USER_AUDIO_TOUR,
   AUDIO_TOUR_BOOKMARK,
   CATEGORIES_TOUR,
-  CREATE_COURSE
+  CREATE_COURSE,
+  All_COURSES,
+  COURSE_BOOKMARK,
 } from "../../navigation/routes";
 
 import style from "../Header/Header.module.css";
@@ -67,10 +69,10 @@ const HeaderView = ({ exit }) => {
                 <NavLink to={CREATE_COURSE}>
                   <img className={style.user} src={AddLogo} />
                 </NavLink>
-                <NavLink to="#">
+                <NavLink to={All_COURSES}>
                   <img className={style.user} src={Courses} />
                 </NavLink>
-                <NavLink to="#">
+                <NavLink to={COURSE_BOOKMARK}>
                   <img className={style.user} src={BookMarkLogo} />
                 </NavLink>
                 <NavLink to="#">

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./MainPage.module.css";
-import { All_AUDIO_TOUR } from "../../navigation/routes";
+import { All_AUDIO_TOUR, All_COURSES } from "../../navigation/routes";
 const MainPageView = () => {
   return (
     <div>
@@ -22,7 +22,7 @@ const MainPageView = () => {
               >
                 Audio Tours
               </Link>
-              <Link className={style.button} to="#">
+              <Link className={style.button} to={All_COURSES}>
                 Courses
               </Link>
             </div>
