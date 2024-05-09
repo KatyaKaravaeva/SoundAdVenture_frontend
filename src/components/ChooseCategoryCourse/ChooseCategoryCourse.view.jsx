@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
-import style from "./AllCourseBookMark.module.css";
-import BookMark from "../../asserts/images/bookmarl.svg";
-import AddedBookMark from "../../asserts/images/added_bookmark.svg";
-import { All_COURSES } from "../../navigation/routes";
+import style from "./ChooseCategoryCourse.module.css";
 
-const AllCourseBookMarkView = ({
-  AllCourseBookMarkQuery,
+const ChooseCategoryCourseView = ({
+  chooseCategoryAudioToursQuery,
   audioTours,
-  makeBookmark,
-  bookmarks,
 }) => {
   if (
-    AllCourseBookMarkQuery.isLoading ||
-    AllCourseBookMarkQuery.isRefetching
+    chooseCategoryAudioToursQuery.isLoading ||
+    chooseCategoryAudioToursQuery.isRefetching
   ) {
     return (
       <div>
@@ -20,18 +15,7 @@ const AllCourseBookMarkView = ({
       </div>
     );
   }
-  if (audioTours.length === 0) {
-    return (
-      <div>
-        <div class="alert alert-dark" role="alert">
-          <span>Здесь пусто. </span>
-          <Link to={All_COURSES} class="alert-link">
-            Посмотреть все образовательные курсы
-          </Link>
-        </div>
-      </div>
-    );
-  }
+
   return (
     <div className={style.container}>
       {audioTours.map((tour, index) => (
@@ -48,18 +32,6 @@ const AllCourseBookMarkView = ({
                 <span className={style.placeholderText}>No Image</span>
               </div>
             )}
-            <button
-              className={`${style.bookmark_btn} ${
-                bookmarks[tour.courseId] ? style.bookmarked : ""
-              }`}
-              onClick={() => makeBookmark(tour.courseId)}
-            >
-              {bookmarks[tour.courseId] ? (
-                <img src={AddedBookMark} className={style.addedBookmarkIcon} />
-              ) : (
-                <img src={BookMark} className={style.bookmarkIcon} />
-              )}
-            </button>
           </div>
           <div className={style.cardContent}>
             <div className={style.cardContentData}>
@@ -87,4 +59,4 @@ const AllCourseBookMarkView = ({
   );
 };
 
-export default AllCourseBookMarkView;
+export default ChooseCategoryCourseView;

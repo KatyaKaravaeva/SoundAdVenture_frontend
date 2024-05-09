@@ -21,7 +21,7 @@ const AllCoursesView = ({
 
   return (
     <div className={style.container}>
-      {courses.map((course, index) => (
+      {courses && courses.map((course, index) => (
         <div className={style.card}>
           <div className={style.cardImageContainer}>
             {course.pathPicture ? (
@@ -61,7 +61,7 @@ const AllCoursesView = ({
             </div>
             <div className={style.cardContentLink}>
               <Link
-                to={`/course_watch/${course.courseId}`}
+                to={`/watch_course/${course.courseId}`}
                 className={style.button}
               >
                 View Details

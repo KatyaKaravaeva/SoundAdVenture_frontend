@@ -16,6 +16,11 @@ import WatchUserAudioTour from "../components/WatchUserAudioTour";
 import CreateCourse from "../components/CreateCourse";
 import AllCourses from "../components/AllCourses";
 import AllCourseBookMark from "../components/AllCourseBookMark";
+import UserCourses from "../components/UserCourses";
+import WatchUserCourse from "../components/WatchUserCourse";
+import UpdateWatchUserCourse from "../components/UpdateWatchUserCourse";
+import CourseCategories from "../components/CourseCategories";
+import ChooseCategoryCourse from "../components/ChooseCategoryCourse";
 
 import {
   ROOT,
@@ -32,6 +37,10 @@ import {
   CREATE_COURSE,
   All_COURSES,
   COURSE_BOOKMARK,
+  USER_COURSES,
+  WATCH_COURSE,
+  COURSE,
+  CATEGORIES_COURSE,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -104,6 +113,14 @@ const RouterConfig = () => {
         }
       />
       <Route
+        path={`${COURSE}/:id`}
+        element={
+          <RequiredAuth>
+            <UpdateWatchUserCourse />
+          </RequiredAuth>
+        }
+      />
+      <Route
         path={AUDIO_TOUR_BOOKMARK}
         element={
           <RequiredAuth>
@@ -120,10 +137,26 @@ const RouterConfig = () => {
         }
       />
       <Route
+        path={CATEGORIES_COURSE}
+        element={
+          <RequiredAuth>
+            <CourseCategories />
+          </RequiredAuth>
+        }
+      />
+      <Route
         path={`/category/:id`}
         element={
           <RequiredAuth>
             <ChooseCategoryAudioTours />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={`/course_category/:id`}
+        element={
+          <RequiredAuth>
+            <ChooseCategoryCourse />
           </RequiredAuth>
         }
       />
@@ -156,6 +189,23 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <AllCourseBookMark />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={USER_COURSES}
+        element={
+          <RequiredAuth>
+            <UserCourses />
+          </RequiredAuth>
+        }
+      />
+
+      <Route
+        path={`${WATCH_COURSE}/:id`}
+        element={
+          <RequiredAuth>
+            <WatchUserCourse />
           </RequiredAuth>
         }
       />

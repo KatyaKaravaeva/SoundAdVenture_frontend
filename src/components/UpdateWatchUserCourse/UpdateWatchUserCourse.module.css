@@ -1,0 +1,411 @@
+.container {
+  display: flex;
+}
+.container_right {
+  flex: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #5656567d;
+  border-radius: 4px;
+}
+.container_left {
+  flex: 1;
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #5656567d;
+}
+
+.cardImage {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  border-left: 4px solid #7d9daa;
+  padding-left: 10px;
+}
+
+.place,
+.address {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.place::before,
+.address::before {
+  content: "•";
+  margin-right: 6px;
+}
+
+.categoryTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.addCategoryButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.addCategoryButton:hover {
+  background-color: #7f8c99;
+}
+
+.tagInput,
+.categoryInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px 0 0 20px;
+}
+
+.deleteCategoryButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteCategoryButton:hover {
+  background-color: #c82333;
+}
+
+.tags {
+  margin-top: 30px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.tagItem {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-blue);
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.tagItem:hover {
+  background-color: #7f8c99;
+}
+
+.tagInputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.addButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.addButton:hover {
+  background-color: #7f8c99;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.deleteButton img {
+  margin-left: 4px;
+  width: 28px;
+  height: 28px;
+}
+
+.deleteButton:hover {
+  opacity: 0.7;
+}
+
+.categoryInputContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.setCategoryButton {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.setCategoryButton:hover {
+  background-color: #7f8c99;
+}
+
+.cardTitle {
+  background-color: #c8d2dc;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.cardTitle .title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cardTitle .description {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cardTitle .place,
+.cardTitle .address {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.category {
+  display: inline-flex;
+  align-items: center;
+  background-color: #8697a8;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category:hover {
+  background-color: #7e9b9f;
+}
+
+.category .deleteButton {
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+.deleteButton:hover {
+  transform: scale(1.1);
+}
+
+.comments {
+  margin-top: 20px;
+  color: white;
+}
+
+.commentsTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #5656568f;
+  color: white;
+}
+
+.commentUser {
+  font-weight: bold;
+}
+
+.commentText {
+  margin-top: 5px;
+}
+
+.commentForm {
+  display: flex;
+  align-items: center;
+}
+
+.commentInput {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  transition: border-color 0.3s;
+}
+
+.commentButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #8697a8;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.commentButton:hover {
+  background-color: #7f8c99;
+}
+
+.setComments {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.setComments:hover {
+  background-color: #7f8c99;
+}
+
+.step_container {
+  border: 1px solid var(--color-blue);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  background-color: #c8d2dc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 7% 7% 3% 7%;
+}
+
+.step_title {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.button_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button_step {
+  padding: 10px 24px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  background-color: var(--color-blue);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.button_step:hover {
+  background-color: #7f8c99;
+}
+
+.button_step:focus {
+  border-color: #5a6978;
+  box-shadow: 0 0 0 3px #505e6b;
+}
+
+.audio {
+  margin-top: 20px;
+  margin: 0 10%;
+}
+
+.audio_input,
+.picture_input {
+  margin-right: 10px;
+  border: 1px solid var(--color-blue);
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.button_add {
+  background-color: var(--color-blue);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button_add:hover {
+  background-color: #7f8c99;
+}
+
+.steps {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1% 10%;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #eeeeee65;
+  transition: background-color 0.3s ease;
+}
+
+.stepItem:hover {
+  background-color: #d8d7d7;
+}
+
+.stepNumber {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
