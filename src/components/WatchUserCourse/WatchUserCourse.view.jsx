@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./WatchUserCourse.module.css";
 import Return from "../../asserts/images/return.svg";
-//import WatchStepCourse from "../WatchStepCourse";
+import WatchStepCourse from "../WatchStepCourse";
 import "./style.scss";
 const WatchUserCourseView = ({
   userCourseQuery,
@@ -58,11 +58,12 @@ const WatchUserCourseView = ({
           </div>
           <div className={style.tags}>
             <div className={style.tags_container}>
-              {tags && tags.map((tag) => (
-                <div key={tag.id} className={style.tagItem}>
-                  <span>{tag.name}</span>
-                </div>
-              ))}
+              {tags &&
+                tags.map((tag) => (
+                  <div key={tag.id} className={style.tagItem}>
+                    <span>{tag.name}</span>
+                  </div>
+                ))}
             </div>
           </div>
           <button
@@ -75,14 +76,15 @@ const WatchUserCourseView = ({
           {showComments && (
             <div className={style.comments}>
               <h3 className={style.commentsTitle}>Comments:</h3>
-              {comments && comments.map((comment) => (
-                <div key={comment.id} className={style.comment}>
-                  <p className={style.commentUser}>{`${
-                    comment.user.name ?? " "
-                  } ${comment.user.lastname ?? " "}`}</p>
-                  <p className={style.commentText}>{comment.text}</p>
-                </div>
-              ))}
+              {comments &&
+                comments.map((comment) => (
+                  <div key={comment.id} className={style.comment}>
+                    <p className={style.commentUser}>{`${
+                      comment.user.name ?? " "
+                    } ${comment.user.lastname ?? " "}`}</p>
+                    <p className={style.commentText}>{comment.text}</p>
+                  </div>
+                ))}
               <form
                 className={style.commentForm}
                 onSubmit={(e) => {
@@ -114,7 +116,7 @@ const WatchUserCourseView = ({
           >
             <img src={Return} alt="return" />
           </button>
-          {/* <WatchStepCourse /> */}
+          <WatchStepCourse />
         </div>
       )}
     </div>

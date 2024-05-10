@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./UpdateWatchUserCourse.module.css";
 import Cancel from "../../asserts/images/cancel.svg";
-import CreateArticle from "../CreateArticle";
+import CreateArticleCourse from "../CreateArticleCourse";
 
 const UpdateWatchUserCourseView = ({
   userAudioTourQuery,
@@ -34,6 +34,9 @@ const UpdateWatchUserCourseView = ({
   uploadPictureFile,
   userAudioTourStepsQuery,
   id,
+  setAddVideo,
+  addVideo,
+  uploadVideoFile,
 }) => {
   if (
     userAudioTourQuery.isLoading ||
@@ -70,17 +73,18 @@ const UpdateWatchUserCourseView = ({
         </div>
         <div className={style.tags}>
           <div className={style.tags_container}>
-            {tags && tags.map((tag) => (
-              <div key={tag.id} className={style.tagItem}>
-                <span>{tag.name}</span>
-                <button
-                  onClick={() => onRemoveTag(tag.id)}
-                  className={style.deleteButton}
-                >
-                  <img src={Cancel} alt="cancel" />
-                </button>
-              </div>
-            ))}
+            {tags &&
+              tags.map((tag) => (
+                <div key={tag.id} className={style.tagItem}>
+                  <span>{tag.name}</span>
+                  <button
+                    onClick={() => onRemoveTag(tag.id)}
+                    className={style.deleteButton}
+                  >
+                    <img src={Cancel} alt="cancel" />
+                  </button>
+                </div>
+              ))}
           </div>
         </div>
         <form onSubmit={onAddTag}>
@@ -182,6 +186,7 @@ const UpdateWatchUserCourseView = ({
                 setAddAudio((prev) => !prev);
                 setAddArticle(false);
                 setAddPicture(false);
+                setAddVideo(false);
               }}
             >
               Аудио
@@ -189,9 +194,22 @@ const UpdateWatchUserCourseView = ({
             <button
               className={style.button_step}
               onClick={() => {
+                setAddVideo((prev) => !prev);
+                setAddArticle(false);
+                setAddPicture(false);
+                setAddAudio(false);
+              }}
+            >
+              {console.log(addVideo)}
+              Видео
+            </button>
+            <button
+              className={style.button_step}
+              onClick={() => {
                 setAddArticle((prev) => !prev);
                 setAddAudio(false);
                 setAddPicture(false);
+                setAddVideo(false);
               }}
             >
               Текст
@@ -202,6 +220,7 @@ const UpdateWatchUserCourseView = ({
                 setAddPicture((prev) => !prev);
                 setAddArticle(false);
                 setAddAudio(false);
+                setAddVideo(false);
               }}
             >
               Картинка
@@ -220,8 +239,21 @@ const UpdateWatchUserCourseView = ({
             </button>
           </div>
         )}
+        {addVideo && (
+          <div className={style.audio}>
+            <input
+              type="file"
+              accept="video/mp4,video/x-m4v,video/*"
+              ref={fileInputRef}
+              className={style.audio_input}
+            />
+            <button className={style.button_add} onClick={uploadVideoFile}>
+              Add Video
+            </button>
+          </div>
+        )}
         {addArticle && (
-          <CreateArticle
+          <CreateArticleCourse
             audioTourId={id}
             userAudioTourStepsQuery={userAudioTourStepsQuery}
           />

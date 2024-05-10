@@ -19,6 +19,7 @@ export const UpdateWatchUserCourseContainer = () => {
   const [addArticle, setAddArticle] = useState(false);
   const [addAudio, setAddAudio] = useState(false);
   const [addPicture, setAddPicture] = useState(false);
+  const [addVideo, setAddVideo] = useState(false);
   const [isModalOpenNotAll, setIsModalOpenNotAll] = useState(false);
   const [isModalOpenNotUpload, setIsModalOpenNotUpload] = useState(false);
 
@@ -41,7 +42,10 @@ export const UpdateWatchUserCourseContainer = () => {
     const formData = new FormData();
     formData.append("formFile", file);
     try {
-      const { data } = await $authHost.post(`PictureStep/${id}`, formData);
+      const { data } = await $authHost.post(
+        `PictureCourseStep/${id}`,
+        formData
+      );
       setIsModalOpenNotAll((prev) => !prev);
       setAddAudio(false);
       setAddPicture(false);
@@ -100,7 +104,9 @@ export const UpdateWatchUserCourseContainer = () => {
 
   const handleRemoveTag = async (tagId) => {
     try {
-      const { data } = await $authHost.delete(`/CourseTag/guide/${id}/${tagId}`);
+      const { data } = await $authHost.delete(
+        `/CourseTag/guide/${id}/${tagId}`
+      );
       setTags(data);
     } catch (error) {
       console.error("Failed to remove tag:", error);
@@ -151,7 +157,7 @@ export const UpdateWatchUserCourseContainer = () => {
     const formData = new FormData();
     formData.append("formFile", fileInput.files[0]);
     try {
-      const { data } = await $authHost.post(`AudioStep/${id}`, formData);
+      const { data } = await $authHost.post(`AudioCourseStep/${id}`, formData);
       setIsModalOpenNotAll((prev) => !prev);
       setAddAudio(false);
       setAddPicture(false);
@@ -159,6 +165,27 @@ export const UpdateWatchUserCourseContainer = () => {
       userAudioTourStepsQuery.refetch();
     } catch (error) {
       console.error("Ошибка при загрузке аудио файла:", error.message);
+    }
+  };
+
+  const uploadVideoFile = async () => {
+    const fileInput = fileInputRef.current.files[0];
+    if (!fileInput) {
+      setIsModalOpenNotUpload(true);
+      return;
+    }
+    const formData = new FormData();
+    formData.append("formFile", fileInput);
+    try {
+      const { data } = await $authHost.post(`VideoCourseStep/${id}`, formData);
+      setIsModalOpenNotAll((prev) => !prev);
+      setAddAudio(false);
+      setAddPicture(false);
+      setAddArticle(false);
+      setAddVideo(false);
+      userAudioTourStepsQuery.refetch();
+    } catch (error) {
+      console.error("Error uploading video file:", error.message);
     }
   };
 
@@ -195,6 +222,9 @@ export const UpdateWatchUserCourseContainer = () => {
         uploadPictureFile={uploadPictureFile}
         userAudioTourStepsQuery={userAudioTourStepsQuery}
         id={id}
+        setAddVideo={setAddVideo}
+        addVideo={addVideo}
+        uploadVideoFile={uploadVideoFile}
       />
       {isModalOpenNotAll && (
         <Modal isOpen={true} isDone={true} onClose={handleModalCloseNotAll}>
