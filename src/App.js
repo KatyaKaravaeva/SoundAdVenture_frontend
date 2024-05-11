@@ -25,15 +25,12 @@ const App = () => {
   //   }
   //   (async () => {
   //     try {
-  //       const { data } = await $authHost.post(
-  //         `${process.env.REACT_APP_URL}/auth/refreshtoken`,
-  //         {
-  //           refreshToken,
-  //         }
+  //       const { data } = await $authHost.get(
+  //         `${process.env.REACT_APP_URL}/Auth/user/refresh`
   //       );
+  //       dispatch(setUserData({ ...data.user, isAuth: true }));
   //       localStorage.setItem("accessToken", data.accessToken);
   //       localStorage.setItem("refreshToken", data.refreshToken);
-  //       dispatch(setUserData({ ...data.user, isAuth: true }));
   //     } catch (error) {
   //       localStorage.removeItem("accessToken");
   //       localStorage.removeItem("refreshToken");
@@ -50,8 +47,6 @@ const App = () => {
     <>
       <BrowserRouter>
         <Header />
-        {/* //TODO убрать */}
-        {/* <MainPage/> */}
         <RouterConfig />
       </BrowserRouter>
     </>

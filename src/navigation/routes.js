@@ -18,3 +18,4 @@ export const WATCH_COURSE = "/watch_course";
 export const WATCH_STEP_TOUR = "/watch_step_tour";
 export const CREATE_COURSE = "/create_course";
 export const All_COURSES = "/all_courses";
+export const CONTACT = "/contact";

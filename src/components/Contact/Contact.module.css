@@ -1,0 +1,262 @@
+.container {
+  color: #40514e;
+  margin: 0;
+  text-align: center;
+  font-family: "Merriweather", serif;
+  height: 100%;
+}
+
+.mountains {
+  max-width: 100%;
+  height: auto;
+}
+
+.topCloud {
+  max-width: 18rem;
+  right: 20%;
+  top: 2rem;
+  object-fit: contain;
+  position: absolute;
+  height: auto;
+}
+
+.bottomCloud {
+  max-width: 18rem;
+  left: 5%;
+  top: 45%;
+  object-fit: contain;
+  position: absolute;
+  height: auto;
+}
+
+.profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 20%;
+}
+
+.intro {
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 900;
+  margin-left: 10%;
+}
+
+.profilePic {
+  border-radius: 4%;
+  height: 450px;
+  margin-top: 40px;
+}
+
+hr {
+  border-style: dotted none none;
+  border-color: #262a37;
+  height: 0px;
+  border-width: 0.625rem;
+  width: 10%;
+  margin: 3.25rem auto;
+}
+
+.topContainer {
+  background-color: #e8f9fda8;
+  padding-top: 24%;
+  position: relative;
+  margin: 0;
+}
+
+.middleContainer {
+  background: linear-gradient(#e8f9fd, rgba(255, 218, 218, 0.77));
+}
+
+.skillRow {
+  width: 50%;
+  margin: 6.25rem auto;
+  text-align: left;
+}
+
+.codeImg {
+  width: 25%;
+  float: left;
+  padding-right: 1.25rem;
+}
+
+.puzzle {
+  width: 25%;
+  float: right;
+  padding-left: 1.25rem;
+}
+
+.bottomContainer {
+  background-color: #7fb5ff;
+  padding: 3.125rem 0 1rem;
+  margin: 20px;
+}
+
+.contact_area {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact {
+    margin-bottom: 60px;
+  }
+}
+
+.contact input {
+  background: #f4f0f0;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #232434;
+  font-size: 16px;
+  height: 60px;
+  padding: 10px;
+  width: 100%;
+  font-family: "poppins", sans-serif;
+  padding-left: 30px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.contact textarea {
+  background: #f4f0f0;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #232434;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  font-family: "poppins", sans-serif;
+  padding-left: 30px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.contact input:focus {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #232434;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+.contact textarea:focus {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #232434;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+.form_control {
+  margin: 5px;
+}
+
+.form_control::placeholder {
+  color: #232434;
+  opacity: 1;
+}
+
+.btn_contact_bg {
+  border-radius: 30px;
+  color: #fff;
+  outline: medium none !important;
+  padding: 15px 27px;
+  text-transform: capitalize;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  background: #7564e5;
+  font-family: "poppins", sans-serif;
+  cursor: pointer;
+  width: 95%;
+}
+
+.btn_contact_bg:hover,
+.btn_contact_bg:focus {
+  background: #232434;
+  color: #fff;
+}
+
+.single_address {
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding-left: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .single_address {
+    padding-left: 0px;
+  }
+}
+
+.single_address i {
+  background: #f6f6f6;
+  color: #7564e5;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  float: left;
+  margin-right: 14px;
+  font-size: 22px;
+  -webkit-box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.single_address:hover i {
+  background: #7564e5;
+  color: #fff;
+}
+
+.single_address h4 {
+  font-size: 18px;
+  margin-bottom: 0px;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.single_address p {
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.single_address a {
+  text-decoration: none;
+}
+
+.section_title h1 {
+  font-size: 44px;
+  font-weight: 500;
+  margin-top: 0;
+  position: relative;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+.section_title p {
+  padding: 0 10px;
+  width: 70%;
+  margin: auto;
+  letter-spacing: 1px;
+}
+.section_title {
+  margin-bottom: 60px;
+}
+.text_center {
+  text-align: center !important;
+}

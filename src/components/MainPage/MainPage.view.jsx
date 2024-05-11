@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./MainPage.module.css";
 import { All_AUDIO_TOUR, All_COURSES } from "../../navigation/routes";
+
 const MainPageView = () => {
   return (
     <div>
@@ -14,7 +15,7 @@ const MainPageView = () => {
               Здесь вы найдете увлекательные аудиоэкскурсии и образовательные
               курсы, посвященные достопримечательностям. Погрузитесь в
               удивительный мир истории и культуры!
-            </p>
+            </p>  
             <div className={style.hero_cta}>
               <Link
                 className={`${style.button} ${style.button_primary}`}

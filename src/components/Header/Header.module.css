@@ -12,7 +12,7 @@
 }
 
 .img_logo_header {
-  width: 120px;
+  width: 153px;
   height: auto;
 }
 
@@ -68,14 +68,93 @@
   text-decoration: underline;
 }
 
-
 .tours img {
-  background-color:#907b3c95;
+  background-color: #907b3c95;
   padding: 2px;
   border-radius: 5px;
 }
 .courses img {
-  background-color:#5777778f;
+  background-color: #5777778f;
   padding: 2px;
   border-radius: 5px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  text-decoration: none;
+  display: block;
+  color: #222;
+}
+.topmenu > li {
+  display: inline-block;
+  position: relative;
+}
+.topmenu > li > a,
+.topmenu > li > span {
+  position: relative;
+  padding: 10px 15px;
+  font-size: 18px;
+  font-family: "Kaushan Script", cursive;
+  font-size: 1.5em;
+  line-height: 1;
+  letter-spacing: 3px;
+}
+.topmenu > li > a:before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 100%;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  transition: 0.3s;
+}
+.topmenu li:hover a:before {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+.submenu {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 100%;
+  width: 250px;
+  padding: 15px 0 15px;
+  margin-top: 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(-50%, 20px);
+  transition: 0.3s;
+}
+.topmenu > li:hover .submenu {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.submenu a {
+  font-family: "Libre Baskerville", serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  transition: 0.3s linear;
+}
+
+.submenu li:nth-child(odd) a {
+  background-color: #f2f0f0bb;
+}
+
+.submenu li:hover a {
+  background: #dedddd;
 }

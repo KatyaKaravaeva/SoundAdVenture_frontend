@@ -10,9 +10,9 @@ export const WatchStepCourseContainer = () => {
   const [activeStepType, setActiveStepType] = useState(-1);
   const [articleStepData, setArticleStepData] = useState(null);
   const [audioUrl, setAudioUrl] = useState("");
-  const [pictureUrl, setPictureUrl] = useState(""); 
+  const [pictureUrl, setPictureUrl] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
-  
+
   const handleStepChange = (newStep) => {
     setActiveStep(newStep);
   };
@@ -84,8 +84,8 @@ export const WatchStepCourseContainer = () => {
       }
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
-      setPictureUrl(url); 
-      console.log(pictureUrl)
+      setPictureUrl(url);
+      console.log(pictureUrl);
     } catch (error) {
       console.error("Error fetching picture:", error);
     }
@@ -106,11 +106,10 @@ export const WatchStepCourseContainer = () => {
       console.error("Error fetching video:", error);
     }
   };
-  
 
   return (
     <WatchStepCourseView
-    userAudioTourQuery={userAudioTourQuery}
+      userAudioTourQuery={userAudioTourQuery}
       userAudioTourStepsListQuery={userAudioTourStepsListQuery}
       activeStep={activeStep}
       handleStepChange={handleStepChange}
@@ -120,7 +119,7 @@ export const WatchStepCourseContainer = () => {
       getArticle={getArticle}
       getAudio={getAudio}
       audioUrl={audioUrl}
-      pictureUrl={pictureUrl} 
+      pictureUrl={pictureUrl}
       getPicture={getPicture}
       videoUrl={videoUrl}
       getVideo={getVideo}

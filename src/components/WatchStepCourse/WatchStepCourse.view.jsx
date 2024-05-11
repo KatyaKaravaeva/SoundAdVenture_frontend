@@ -33,6 +33,8 @@ const WatchStepCourseView = ({
     }
   }, [userAudioTourStepsListQuery.data]);
 
+  useEffect(() => {}, [activeStepId]);
+
   const handleStepClick = (index) => {
     const newCompletedSteps = completedSteps.slice();
     newCompletedSteps[index] = true;
@@ -136,7 +138,7 @@ const WatchStepCourseView = ({
                     <p>Шаг {activeStepId}</p>
                   </div>
                   {videoUrl && (
-                    <video  style={{ width: "100%" }} controls>
+                    <video style={{ width: "100%" }} controls>
                       <source src={videoUrl} type="video/mp4" />
                       Your browser does not support the video element.
                     </video>

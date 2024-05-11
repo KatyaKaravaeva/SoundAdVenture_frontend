@@ -91,6 +91,10 @@ export const UpdateWatchUserCourseContainer = () => {
   const handleAddTag = async (e) => {
     e.preventDefault();
     try {
+      if (!tagInput.trim()) {
+        alert("Тег не может быть пустым!");
+        return;
+      }
       const { data } = await $authHost.post(`/CourseTag/tour/${id}`, {
         audioTourId: audioTour.id,
         name: tagInput,
@@ -116,6 +120,10 @@ export const UpdateWatchUserCourseContainer = () => {
   const handleSetCategory = async (e) => {
     e.preventDefault();
     try {
+      if (!categoryInput.trim()) {
+        alert("Категория не может быть пустой!");
+        return;
+      }
       const { data } = await $authHost.post(`/CourseCategories/tour/${id}`, {
         name: categoryInput,
       });
@@ -137,6 +145,10 @@ export const UpdateWatchUserCourseContainer = () => {
 
   const handleAddComment = async (commentText) => {
     try {
+      if (!commentText.trim()) {
+        alert("Комментарий не может быть пустым!");
+        return;
+      }
       const { data } = await $authHost.post(`/CourseComment/add/${id}`, {
         text: commentText,
       });

@@ -21,71 +21,107 @@ import {
   COURSE_BOOKMARK,
   USER_COURSES,
   CATEGORIES_COURSE,
+  CONTACT,
 } from "../../navigation/routes";
 
 import style from "../Header/Header.module.css";
 
 const HeaderView = ({ exit }) => {
-  const userAuthentication = useSelector((state) => state.user.isAuth);
   const userRole = useSelector((state) => state.user.role);
+  const userAuthentication = useSelector((state) => state.user.isAuth);
   return (
     <>
       <div className={style.header}>
         <NavLink to="/" className={style.logo_header}>
-          <img src={Logo} alt="Logo VF" className={style.img_logo_header} />
+          <img src={Logo} alt="Logо" className={style.img_logo_header} />
         </NavLink>
+        {console.log(userAuthentication)}
         {userAuthentication ? (
           <>
             <div className={style.navigation_header}>
-              <NavLink to="/" className={style.active_header}>
-                Home
-              </NavLink>
-              <NavLink to={PERSONAL_ACCOUNT}>
-                <img className={style.user} src={User} />
-              </NavLink>
-              <div className={style.tours}>
-                {userRole === "admin" && (
-                  <NavLink to={CREATE_AUDIO_TOUR}>
-                    <span>
-                      <img className={style.user} src={AddLogo} />
-                    </span>
-                  </NavLink>
-                )}
-                <NavLink to={All_AUDIO_TOUR}>
-                  <img className={style.user} src={AllLogo} />
-                </NavLink>
-                {userRole === "admin" && (
-                  <NavLink to={USER_AUDIO_TOUR}>
-                    <img className={style.user} src={UserAudioTours} />
-                  </NavLink>
-                )}
-                <NavLink to={AUDIO_TOUR_BOOKMARK}>
-                  <img className={style.user} src={BookMarkLogo} />
-                </NavLink>
-                <NavLink to={CATEGORIES_TOUR}>
-                  {" "}
-                  <img className={style.user} src={CategoriesLogo} />
-                </NavLink>
-              </div>
-              <div className={style.courses}>
-                <NavLink to={CREATE_COURSE}>
-                  <img className={style.user} src={AddLogo} />
-                </NavLink>
-                <NavLink to={All_COURSES}>
-                  <img className={style.user} src={Courses} />
-                </NavLink>
-                {userRole === "admin" && (
-                  <NavLink to={USER_COURSES}>
-                    <img className={style.user} src={UserAudioTours} />
-                  </NavLink>
-                )}
-                <NavLink to={COURSE_BOOKMARK}>
-                  <img className={style.user} src={BookMarkLogo} />
-                </NavLink>
-                <NavLink to={CATEGORIES_COURSE}>
-                  <img className={style.user} src={CategoriesLogo} />
-                </NavLink>
-              </div>
+              <nav>
+                <ul className={style.topmenu}>
+                  <li>
+                    <NavLink to="/" className={style.active_header}>
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={PERSONAL_ACCOUNT}>Personal Account</NavLink>
+                  </li>
+                  <li>
+                    <span className={style.down}>AudioGuides</span>
+                    <ul className={style.submenu}>
+                      <li>
+                        {userRole === "admin" && (
+                          <NavLink to={CREATE_AUDIO_TOUR}>
+                            Создать аудиогид
+                          </NavLink>
+                        )}
+                      </li>
+                      <li>
+                        <NavLink to={All_AUDIO_TOUR} className={style.link}>
+                          Все аудиогиды
+                        </NavLink>
+                      </li>
+                      <li>
+                        {userRole === "admin" && (
+                          <li>
+                            <NavLink
+                              to={USER_AUDIO_TOUR}
+                              className={style.link}
+                            >
+                              Мои аудиогиды
+                            </NavLink>
+                          </li>
+                        )}
+                      </li>
+                      <li>
+                        <NavLink
+                          to={AUDIO_TOUR_BOOKMARK}
+                          className={style.link}
+                        >
+                          Закладки аудиогидов
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={CATEGORIES_TOUR} className={style.link}>
+                          Категории аудиогидов
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span className={style.down}>Educational Courses</span>
+                    <ul className={style.submenu}>
+                      <li>
+                        {userRole === "admin" && (
+                          <NavLink to={CREATE_COURSE}>Создать курс</NavLink>
+                        )}
+                      </li>
+                      <li>
+                        <NavLink to={All_COURSES}>Все курсы</NavLink>
+                      </li>
+                      <li>
+                        {userRole === "admin" && (
+                          <NavLink to={USER_COURSES}>Мои курсы</NavLink>
+                        )}
+                      </li>
+                      <li>
+                        <NavLink to={COURSE_BOOKMARK}>Закладки курсов</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={CATEGORIES_COURSE}>
+                          Категории курсов
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <NavLink to={CONTACT}>Contact</NavLink>
+                  </li>
+                </ul>
+              </nav>
               <button className={style.header__exit} onClick={exit}>
                 <img src={Exit} />
               </button>

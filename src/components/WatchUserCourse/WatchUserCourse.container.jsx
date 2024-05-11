@@ -80,6 +80,10 @@ export const WatchUserCourseContainer = () => {
 
   const handleAddComment = async (commentText) => {
     try {
+      if (!commentText.trim()){
+        alert("Комментарий не может быть пустым!");
+        return;
+      }
       const { data } = await $authHost.post(`/CourseComment/add/${id}`, {
         text: commentText,
       });

@@ -12,8 +12,9 @@ const CreateCourse = ({
       className="container"
       style={{
         width: "60%",
+        height: "60%",
         backgroundColor: "rgb(108 147 163 / 77%)",
-        marginTop: "40px",
+        marginTop: "5%",
         padding: "26px",
       }}
     >

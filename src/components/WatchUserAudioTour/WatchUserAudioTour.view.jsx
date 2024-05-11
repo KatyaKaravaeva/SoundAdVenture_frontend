@@ -3,6 +3,9 @@ import style from "./WatchUserAudioTour.module.css";
 import Return from "../../asserts/images/return.svg";
 import WatchStepAudioTour from "../WatchStepAudioTour";
 import "./style.scss";
+import "../../asserts/styles/ratingStyle.css";
+import Stars from "../Stars/Stars";
+
 const WatchUserAudioTourView = ({
   userAudioTourQuery,
   audioTour,
@@ -25,7 +28,7 @@ const WatchUserAudioTourView = ({
   handleAddComment,
 }) => {
   const [showAudioTour, setShowAudioTour] = useState(false);
-
+  const defaultRating = localStorage.getItem("starRating");
   if (userAudioTourQuery.isLoading || userAudioTourQuery.isRefetching) {
     return <div>Loading...</div>;
   }
@@ -41,7 +44,10 @@ const WatchUserAudioTourView = ({
           />
           <div className={style.cardTitle}>
             <h2 className={style.title}>{audioTour.title}</h2>
-            <button class="learn-more" onClick={() => setShowAudioTour(true)}>
+            <button
+              class="learn-more button"
+              onClick={() => setShowAudioTour(true)}
+            >
               <span class="circle" aria-hidden="true">
                 <span class="icon arrow"></span>
               </span>
@@ -56,6 +62,7 @@ const WatchUserAudioTourView = ({
               <div className={style.category}>Category: {category.name}</div>
             )}
           </div>
+          <Stars iconSize={27} defaultRating={defaultRating} />
           <div className={style.tags}>
             <div className={style.tags_container}>
               {tags.map((tag) => (
@@ -65,12 +72,14 @@ const WatchUserAudioTourView = ({
               ))}
             </div>
           </div>
+
           <button
             className={style.setComments}
             onClick={(e) => setShowComments(!showComments)}
           >
             {showComments ? "Hide Comments" : "Show Comments"}
           </button>
+
 
           {showComments && (
             <div className={style.comments}>
@@ -105,7 +114,6 @@ const WatchUserAudioTourView = ({
           )}
         </div>
       )}
-
       {showAudioTour && (
         <div className={style.container_right}>
           <button

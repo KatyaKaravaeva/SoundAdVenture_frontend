@@ -10,7 +10,7 @@ const $authHost = axios.create({
 
 const authInterceptor = (config) => {
   config.headers.Authorization = `Bearer ${localStorage.getItem(
-    "accessToken"
+    "refreshToken"
   )}`;
   config.headers.RefreshToken = `Bearer ${localStorage.getItem(
     "refreshToken"
@@ -27,27 +27,27 @@ $host.interceptors.request.use(headersInterceptor);
 
 $authHost.interceptors.request.use(authInterceptor);
 
-$authHost.interceptors.response.use(
-  (config) => {
-    return config;
-  },
-  async (error) => {
-    const originalRequest = error.config;
-    if (error.response && error.response.status === 401) {
-      try {
-        const response = await $authHost.get(
-          `${process.env.REACT_APP_URL}/user/refresh`
-        );
-        localStorage.setItem("accessToken", response.data.AccessToken);
-        localStorage.setItem("refreshToken", response.data.RefreshToken);
-        return $authHost.request(originalRequest);
-      } catch (e) {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-      }
-    }
-    throw error;
-  }
-);
+// $authHost.interceptors.response.use(
+//   (config) => {
+//     return config;
+//   },
+//   async (error) => {
+//     const originalRequest = error.config;
+//     if (error.response && error.response.status === 401) {
+//       try {
+//         const response = await $authHost.get(
+//           `${process.env.REACT_APP_URL}/Auth/user/refresh`
+//         );
+//         localStorage.setItem("accessToken", response.data.AccessToken);
+//         localStorage.setItem("refreshToken", response.data.RefreshToken);
+//         return $authHost.request(originalRequest);
+//       } catch (e) {
+//         localStorage.removeItem("accessToken");
+//         localStorage.removeItem("refreshToken");
+//       }
+//     }
+//     throw error;
+//   }
+// );
 
 export { $host, $authHost };

@@ -21,6 +21,7 @@ import WatchUserCourse from "../components/WatchUserCourse";
 import UpdateWatchUserCourse from "../components/UpdateWatchUserCourse";
 import CourseCategories from "../components/CourseCategories";
 import ChooseCategoryCourse from "../components/ChooseCategoryCourse";
+import Contact from "../components/Contact";
 
 import {
   ROOT,
@@ -41,6 +42,7 @@ import {
   WATCH_COURSE,
   COURSE,
   CATEGORIES_COURSE,
+  CONTACT,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -200,12 +202,19 @@ const RouterConfig = () => {
           </RequiredAuth>
         }
       />
-
       <Route
         path={`${WATCH_COURSE}/:id`}
         element={
           <RequiredAuth>
             <WatchUserCourse />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={CONTACT}
+        element={
+          <RequiredAuth>
+            <Contact />
           </RequiredAuth>
         }
       />

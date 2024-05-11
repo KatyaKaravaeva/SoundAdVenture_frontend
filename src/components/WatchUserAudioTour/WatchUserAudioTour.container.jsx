@@ -36,6 +36,10 @@ export const WatchUserAudioTourContainer = () => {
   const handleAddTag = async (e) => {
     e.preventDefault();
     try {
+      if (!tagInput.trim()){
+        alert("Тег не может быть пустым!");
+        return;
+      }
       const { data } = await $authHost.post(`/Tag/tour/${id}`, {
         audioTourId: audioTour.id,
         name: tagInput,
@@ -80,6 +84,10 @@ export const WatchUserAudioTourContainer = () => {
 
   const handleAddComment = async (commentText) => {
     try {
+      if (!commentText.trim()){
+        alert("Комментарий не может быть пустым!");
+        return;
+      }
       const { data } = await $authHost.post(`/Comment/add/${id}`, {
         text: commentText,
       });

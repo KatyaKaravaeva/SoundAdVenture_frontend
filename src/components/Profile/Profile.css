@@ -1,5 +1,8 @@
+.container {
+  margin-top: 5%;
+}
 .profile_light {
-  background: linear-gradient(rgb(83, 140, 167), rgba(196, 168, 168, 0.694));
+  background-color: rgba(179, 182, 184, 0.706);
   margin: 0 auto;
   width: 75%;
 }
