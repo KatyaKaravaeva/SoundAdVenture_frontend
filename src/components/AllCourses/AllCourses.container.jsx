@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 export const AllCoursesContainer = () => {
   const [courses, setCourses] = useState([]);
   const [bookmarks, setBookmarks] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
 
   const AllCoursesQuery = useQuery(
     ["userAllCoursesData"],
@@ -56,12 +57,26 @@ export const AllCoursesContainer = () => {
     }
   }
 
+  async function handleSearch() {
+    try {
+      const { data } = await $authHost.get(
+        `${process.env.REACT_APP_URL}/Course/search?searchTerm=${searchQuery}`
+      );
+      setCourses(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <AllCoursesView
       AllCoursesQuery={AllCoursesQuery}
       courses={courses}
       makeBookmark={makeBookmark}
       bookmarks={bookmarks}
+      setSearchQuery={setSearchQuery}
+      searchQuery={searchQuery}
+      handleSearch={handleSearch}
     />
   );
 };

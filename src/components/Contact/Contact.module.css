@@ -9,6 +9,8 @@
 .mountains {
   max-width: 100%;
   height: auto;
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
 .topCloud {
@@ -60,9 +62,9 @@ hr {
 
 .topContainer {
   background-color: #e8f9fda8;
-  padding-top: 24%;
   position: relative;
   margin: 0;
+  padding-top: 42vh;
 }
 
 .middleContainer {

@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 export const AllAudioTourContainer = () => {
   const [audioTours, setAudioTours] = useState([]);
   const [bookmarks, setBookmarks] = useState({});
+  const [searchQuery, setSearchQuery] = useState("");
 
   const AllAudioTourQuery = useQuery(
     ["userAllAudioTourData"],
@@ -24,7 +25,7 @@ export const AllAudioTourContainer = () => {
 
       setAudioTours(data);
       setBookmarks(bookmarksMap);
-      console.log(bookmarksMap)
+      console.log(bookmarksMap);
       return data;
     },
     {
@@ -57,12 +58,26 @@ export const AllAudioTourContainer = () => {
     }
   }
 
+  async function handleSearch() {
+    try {
+      const { data } = await $authHost.get(
+        `${process.env.REACT_APP_URL}/AudioTour/search?searchTerm=${searchQuery}`
+      );
+      setAudioTours(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <AllAudioTourView
       AllAudioTourQuery={AllAudioTourQuery}
       audioTours={audioTours}
       makeBookmark={makeBookmark}
       bookmarks={bookmarks}
+      setSearchQuery={setSearchQuery}
+      searchQuery={searchQuery}
+      handleSearch={handleSearch}
     />
   );
 };

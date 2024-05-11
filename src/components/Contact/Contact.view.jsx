@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from "./Contact.module.css";
 import CloudImage from "../../asserts/images/cloud.png";
 import MountainImage from "../../asserts/images/mountains.png";
@@ -110,7 +109,7 @@ const ContactView = () => {
               </div>
               <div class="col-lg-5">
                 <div class="single_address">
-                  <i class="fa fa-telegram"></i>
+                  <i class="fa fa-camera-retro fa-lg"></i>
                   <h4>Telegram</h4>
                   <p>
                     <a href="https://t.me/KitKat01011">@KitKat01011</a>

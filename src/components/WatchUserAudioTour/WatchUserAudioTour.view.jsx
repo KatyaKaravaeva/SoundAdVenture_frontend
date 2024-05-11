@@ -3,7 +3,6 @@ import style from "./WatchUserAudioTour.module.css";
 import Return from "../../asserts/images/return.svg";
 import WatchStepAudioTour from "../WatchStepAudioTour";
 import "./style.scss";
-import "../../asserts/styles/ratingStyle.css";
 import Stars from "../Stars/Stars";
 
 const WatchUserAudioTourView = ({

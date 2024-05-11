@@ -33,9 +33,9 @@ const ProfileView = ({
             <img
               className="rounded-circle mb-3"
               src={UserLogo}
+              width="120px"
+              height="120px"
               alt="Profile Picture"
-              width="120"
-              height="120"
             />
             <h2 className="mb-0">
               {userData.name} {userData.lastname}
