@@ -1,0 +1,94 @@
+.usersListCont {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.usersList {
+  height: 70%;
+  width: 80%;
+  overflow-y: auto;
+}
+
+.usersList::-webkit-scrollbar {
+  height: 5px;
+  width: 10px;
+}
+
+.usersList::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.usersList::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.editPic {
+  height: 25px;
+  width: 25px;
+  margin: 0 0 0 0;
+}
+
+.userCont {
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.userInfoCont {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.userInfoContH3 {
+  margin: auto auto auto 20px;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.userInfoContRole {
+  background-color: rgb(218, 202, 182);
+  font-size: small;
+  height: fit-content;
+  font-weight: 500;
+  margin: auto auto auto 20px;
+  border-radius: 4px;
+  padding: 1px 3px 2px 3px;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 1px 1px 1px silver, -1px 1px 1px silver;
+  color: rgb(109, 67, 25);
+  transition: all 0.5s;
+}
+
+.userCont > button {
+  background-color: rgb(194, 165, 87);
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  margin-left: auto;
+  margin-right: 17px;
+}
+
+.usersDataInfo {
+    background-color: #3a4c60;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .usersDataInfo p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  

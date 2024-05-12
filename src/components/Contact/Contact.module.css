@@ -14,7 +14,7 @@
 }
 
 .topCloud {
-  max-width: 18rem;
+  max-width: 23rem;
   right: 20%;
   top: 2rem;
   object-fit: contain;
@@ -64,7 +64,11 @@ hr {
   background-color: #e8f9fda8;
   position: relative;
   margin: 0;
-  padding-top: 42vh;
+  padding-top: 39vh;
+}
+
+.topContainer > h1 {
+  margin-bottom: 40px;
 }
 
 .middleContainer {

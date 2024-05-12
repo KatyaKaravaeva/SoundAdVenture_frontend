@@ -1,5 +1,5 @@
 .profile_light {
-  background-color: rgba(179, 182, 184, 0.706);
+  background-color: rgba(179, 182, 184, 0.844);
   margin: 0 auto;
   width: 75%;
 }
@@ -13,6 +13,7 @@
 }
 
 .profile_button {
+  margin-left: 5px;
   width: 100%;
   padding: 12px;
   background-color: var(--color-dark5);

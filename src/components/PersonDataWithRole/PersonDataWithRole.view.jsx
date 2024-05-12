@@ -1,7 +1,7 @@
 import UserLogo from "../../asserts/images/account.png";
-import "./Profile.css";
+import "./PersonDataWithRole.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import style from "./Profile.module.css";
+import style from "./PersonDataWithRole.module.css";
 
 
 const ProfileView = ({
@@ -106,4 +106,4 @@ const ProfileView = ({
   );
 };
 
-export default ProfileView;
+export default PersonDataWithRoleView;

@@ -22,6 +22,7 @@ import UpdateWatchUserCourse from "../components/UpdateWatchUserCourse";
 import CourseCategories from "../components/CourseCategories";
 import ChooseCategoryCourse from "../components/ChooseCategoryCourse";
 import Contact from "../components/Contact";
+import AllUsersControl from "../components/AllUsersControl";
 
 import {
   ROOT,
@@ -43,6 +44,7 @@ import {
   COURSE,
   CATEGORIES_COURSE,
   CONTACT,
+  ALL_USERS_CONTROL,
 } from "./routes";
 import RequiredAuth from "./RequiredAuth";
 import RequiredNotAuth from "./RequiredNotAuth";
@@ -191,6 +193,14 @@ const RouterConfig = () => {
         element={
           <RequiredAuth>
             <AllCourseBookMark />
+          </RequiredAuth>
+        }
+      />
+      <Route
+        path={ALL_USERS_CONTROL}
+        element={
+          <RequiredAuth>
+            <AllUsersControl />
           </RequiredAuth>
         }
       />

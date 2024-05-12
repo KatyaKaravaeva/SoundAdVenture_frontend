@@ -1,0 +1,98 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal_content {
+  position: relative;
+  background-color: #f3feff;
+  background-image: url("../../asserts/images/fireworks.png");
+  padding: 24px;
+  width: 480px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal_content_not_all {
+  position: relative;
+  background-color: #f3feff;
+  background-image: url("../../asserts/images/not_all.jpg");
+  padding: 24px;
+  width: 480px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  margin-top: 48px;
+  font-size: 20px;
+  color: #333;
+  line-height: 1.5;
+  background-color: #f3feffc4;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.close_button {
+  margin-left: 90%;
+  border: none;
+  cursor: pointer;
+}
+
+.close_button img {
+  width: 50px;
+  height: 50px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.close_button img:hover {
+  opacity: 1;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.button {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background-color: #03749d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.button:first-of-type {
+  margin-top: 0;
+}
+
+.button:hover {
+  background-color: #01384b;
+}
