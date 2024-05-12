@@ -5,6 +5,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import "./StepStyle.css";
 import Stepper from "@mui/material/Stepper";
+import "./style.sass";
 
 const WatchStepAudioTourView = ({
   userAudioTourQuery,
@@ -39,8 +40,8 @@ const WatchStepAudioTourView = ({
     handleStepChange(index);
     setActiveStepId(index + 1);
     handleStepTypeChange(userAudioTourStepsListQuery.data[index].type);
-     getArticle(userAudioTourStepsListQuery.data[index].id);
-     getAudio(userAudioTourStepsListQuery.data[index].id);
+    getArticle(userAudioTourStepsListQuery.data[index].id);
+    getAudio(userAudioTourStepsListQuery.data[index].id);
     getPicture(userAudioTourStepsListQuery.data[index].id);
   };
 
@@ -91,6 +92,18 @@ const WatchStepAudioTourView = ({
               </Box>
             </div>
           </div>
+          <div class="container_switch">
+            <div class="toggle">
+              <input type="checkbox" />
+              <span class="button"></span>
+              <span class="label">{"<"}</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span class="button"></span>
+              <span class="label">{">"}</span>
+            </div>
+          </div>
           {activeStepId == null ? (
             <div className={style.stepper_show}>
               <h2>{userAudioTourQuery.data.title}</h2>
@@ -132,7 +145,13 @@ const WatchStepAudioTourView = ({
                   <div className={style.step_number}>
                     <p>Шаг {activeStepId}</p>
                   </div>
-                  {pictureUrl && <img style={{ width: "100%" }} src={pictureUrl} alt="Picture" />}
+                  {pictureUrl && (
+                    <img
+                      style={{ width: "100%" }}
+                      src={pictureUrl}
+                      alt="Picture"
+                    />
+                  )}
                 </div>
               )}
             </div>

@@ -4,6 +4,7 @@ import Return from "../../asserts/images/return.svg";
 import WatchStepAudioTour from "../WatchStepAudioTour";
 import "./style.scss";
 import Stars from "../Stars/Stars";
+import "../../asserts/styles/rating.css";
 
 const WatchUserAudioTourView = ({
   userAudioTourQuery,
@@ -60,8 +61,75 @@ const WatchUserAudioTourView = ({
             {category && (
               <div className={style.category}>Category: {category.name}</div>
             )}
+            <div className={style.rating}>
+              <span class="heading">Пользовательский рейтинг</span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <p>4.1 в среднем по 254 голосам.</p>
+              <hr class="hr_user__rating" />
+              <div class="row">
+                <div class="side">
+                  <div>5 звезд</div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-5"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>10</div>
+                </div>
+                <div class="side">
+                  <div>4 звезды</div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-4"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>63</div>
+                </div>
+                <div class="side">
+                  <div>3 звезды</div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-3"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>15</div>
+                </div>
+                <div class="side">
+                  <div>2 звезды</div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-2"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>6</div>
+                </div>
+                <div class="side">
+                  <div>1 звезда</div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-1"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>20</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <Stars iconSize={27} defaultRating={defaultRating} />
+
           <div className={style.tags}>
             <div className={style.tags_container}>
               {tags.map((tag) => (
@@ -71,14 +139,16 @@ const WatchUserAudioTourView = ({
               ))}
             </div>
           </div>
-
+          <div className={style.rating_container__div}>
+            <span className={style.rating_userStars__p}>Оценить: </span>
+            <Stars iconSize={27} defaultRating={defaultRating} />
+          </div>
           <button
             className={style.setComments}
             onClick={(e) => setShowComments(!showComments)}
           >
             {showComments ? "Hide Comments" : "Show Comments"}
           </button>
-
 
           {showComments && (
             <div className={style.comments}>

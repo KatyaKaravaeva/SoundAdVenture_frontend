@@ -163,7 +163,6 @@ const UpdateWatchUserAudioTourView = ({
             <div
               key={step.id}
               className={style.stepItem}
-              //onClick={() => handleStepClick(step)}
             >
               <div className={style.stepNumber}>{index + 1}</div>
             </div>

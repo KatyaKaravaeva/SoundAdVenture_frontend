@@ -36,7 +36,8 @@ const ContactView = () => {
             </p>
           </div>
         </div>
-        <hr />
+
+        <hr className={style.hr_contact} />
 
         <div
           id="contact"
