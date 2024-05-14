@@ -7,11 +7,11 @@ const AuthorizationView = ({ handleSubmit }) => {
     <div className={style.main}>
       <div className={style.container}>
         <form name="signIn" onSubmit={(e) => handleSubmit(e)}>
-          <h1>Login</h1>
+          <h1>Вход</h1>
           <div className={style.input_box}>
             <input
               type="text"
-              placeholder="Login"
+              placeholder="Логин"
               name="signIn[login]"
               required
             />
@@ -19,17 +19,17 @@ const AuthorizationView = ({ handleSubmit }) => {
           <div className={style.input_box}>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Пароль"
               name="signIn[password]"
               required
             />
           </div>
           <button type="submit" className={style.btn}>
-            Sign in
+            Войти
           </button>
           <div className={style.form_group}>
             <NavLink to={REGISTRATION} className={style.form_group__a}>
-              Sign up
+              Регистрация
             </NavLink>
           </div>
         </form>

@@ -57,7 +57,7 @@
   margin-right: 6px;
 }
 
-.rating_container__div{
+.rating_container__div {
   margin-top: 20px;
 }
 
@@ -67,9 +67,9 @@
   margin-bottom: 5px;
 }
 
-.rating{
+.rating {
   margin-top: 30px;
-  color:#333;
+  color: #333;
 }
 
 .categoryTitle {
@@ -390,3 +390,8 @@
   background-color: #cccccc78;
   border-radius: 50%;
 }
+
+
+
+
+

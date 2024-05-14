@@ -113,9 +113,8 @@
   background-color: var(--color-blue);
   color: #fff;
   border-radius: 20px;
-  padding: 8px 12px;
-  font-size: 14px;
-  margin-right: 8px;
+  padding: 0px 0 0 16px;
+  margin-right: 19px;
   margin-bottom: 8px;
 }
 
@@ -129,6 +128,7 @@
 }
 
 .addButton {
+  margin: 0;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: bold;
@@ -215,7 +215,7 @@
   align-items: center;
   background-color: #8697a8;
   color: #fff;
-  padding: 6px 12px;
+  padding:  0 0 0 16px;
   border-radius: 20px;
   margin-right: 8px;
   font-size: 14px;
@@ -302,6 +302,7 @@
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 20px;
+  margin-left: 0;
 }
 
 .setComments:hover {

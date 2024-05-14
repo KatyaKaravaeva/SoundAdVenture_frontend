@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { $authHost } from "../../services/api.service";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import WatchUserCourseView from "./WatchUserCourse.view";
 
@@ -14,6 +14,17 @@ export const WatchUserCourseContainer = () => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
   const [newCommentText, setNewCommentText] = useState("");
+  const [avMark, setNewCosetAvMark] = useState(0);
+  const [amountMarked, setAmountMarked] = useState(0);
+  const [markCounts, setMarkCounts] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  });
+
+  const defaultRating = localStorage.getItem("starRating");
 
   const userCourseQuery = useQuery(
     ["updateWatchUserCoursesData"],
@@ -49,7 +60,9 @@ export const WatchUserCourseContainer = () => {
 
   const handleRemoveTag = async (tagId) => {
     try {
-      const { data } = await $authHost.delete(`/CourseTag/guide/${id}/${tagId}`);
+      const { data } = await $authHost.delete(
+        `/CourseTag/guide/${id}/${tagId}`
+      );
       setTags(data);
     } catch (error) {
       console.error("Failed to remove tag:", error);
@@ -80,7 +93,7 @@ export const WatchUserCourseContainer = () => {
 
   const handleAddComment = async (commentText) => {
     try {
-      if (!commentText.trim()){
+      if (!commentText.trim()) {
         alert("Комментарий не может быть пустым!");
         return;
       }
@@ -93,6 +106,84 @@ export const WatchUserCourseContainer = () => {
       console.error("Failed to add comment:", error);
     }
   };
+
+  const userCourseMarkQuery = useQuery(
+    ["userCourseMarkData"],
+    async () => {
+      try {
+        const { data } = await $authHost.get(
+          `${process.env.REACT_APP_URL}/Stars/getMark?unitId=${id}&type=0`
+        );
+        return data;
+      } catch (error) {
+        const data = { mark: 0 };
+        return data;
+      }
+    },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const userCourseAveragеMarkQuery = useQuery(
+    ["userCourserAveragеMarkData"],
+    async () => {
+      const [averageMarkResponse, totalMarkCountResponse] = await Promise.all([
+        $authHost.get(
+          `${process.env.REACT_APP_URL}/Stars/getAverageMark?unitId=${id}&type=0`
+        ),
+        $authHost.get(
+          `${process.env.REACT_APP_URL}/Stars/getTotalMarkCount?unitId=${id}&type=0`
+        ),
+      ]);
+
+      const data = averageMarkResponse.data;
+      const data2 = totalMarkCountResponse.data;
+
+      setAmountMarked(data2);
+      setNewCosetAvMark(data);
+
+      return data2;
+    },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  useEffect(() => {
+    const fetchMarkCounts = async () => {
+      const [oneStar, twoStars, threeStars, fourStars, fiveStars] =
+        await Promise.all([
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=0&mark=1`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=0&mark=2`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=0&mark=3`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=0&mark=4`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=0&mark=5`
+          ),
+        ]);
+
+      setMarkCounts({
+        1: oneStar.data,
+        2: twoStars.data,
+        3: threeStars.data,
+        4: fourStars.data,
+        5: fiveStars.data,
+      });
+    };
+
+    fetchMarkCounts();
+  }, [id]);
 
   return (
     <WatchUserCourseView
@@ -115,6 +206,15 @@ export const WatchUserCourseContainer = () => {
       newCommentText={newCommentText}
       setNewCommentText={setNewCommentText}
       handleAddComment={handleAddComment}
+      defaultRating={defaultRating}
+      userCourseMarkQuery={userCourseMarkQuery}
+      userCourseAveragеMarkQuery={userCourseAveragеMarkQuery}
+      avMark={avMark}
+      setNewCosetAvMark={setNewCosetAvMark}
+      setAmountMarked={setAmountMarked}
+      amountMarked={amountMarked}
+      markCounts={markCounts}
+      setMarkCounts={setMarkCounts}
     />
   );
 };

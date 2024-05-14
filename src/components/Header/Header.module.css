@@ -1,3 +1,4 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
 .header {
   display: flex;
   justify-content: space-between;
@@ -84,25 +85,34 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-nav a {
+nav a,
+nav span {
   text-decoration: none;
   display: block;
   color: #222;
+  /* border: 1px dotted #000;
+  border-radius: 10px; */
+  margin: 0 4px;
 }
+
 .topmenu > li {
   display: inline-block;
   position: relative;
+  margin: 0 8px;
 }
+
 .topmenu > li > a,
 .topmenu > li > span {
   position: relative;
   padding: 10px 15px;
+  font-size: 1.3em;
+  line-height: 1;
+  letter-spacing: 1px;
   font-size: 18px;
   font-family: "Kaushan Script", cursive;
-  font-size: 1.5em;
-  line-height: 1;
-  letter-spacing: 3px;
+  font-size: 1.4em;
 }
+
 .topmenu > li > a:before {
   content: "";
   position: absolute;

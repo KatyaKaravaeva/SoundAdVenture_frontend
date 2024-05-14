@@ -26,12 +26,73 @@ const WatchUserAudioTourView = ({
   newCommentText,
   setNewCommentText,
   handleAddComment,
+  userAudioTourMarkQuery,
+  avMark,
+  setNewCosetAvMark,
+  setAmountMarked,
+  amountMarked,
+  markCounts,
+  setMarkCounts,
 }) => {
   const [showAudioTour, setShowAudioTour] = useState(false);
-  const defaultRating = localStorage.getItem("starRating");
-  if (userAudioTourQuery.isLoading || userAudioTourQuery.isRefetching) {
+
+  if (
+    userAudioTourQuery.isLoading ||
+    userAudioTourQuery.isRefetching ||
+    userAudioTourMarkQuery.isLoading ||
+    userAudioTourMarkQuery.isRefetching
+  ) {
     return <div>Loading...</div>;
   }
+
+  const renderStars = (rating) => {
+    const roundedRating = Math.round(rating);
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <span
+          key={i}
+          className={`fa fa-star${i <= roundedRating ? " checked" : ""}`}
+        ></span>
+      );
+    }
+    return stars;
+  };
+
+  const renderRatingBars = () => {
+    const totalRatings = Object.values(markCounts).reduce((a, b) => a + b, 0);
+
+    return [5, 4, 3, 2, 1].map((star) => {
+      const count = markCounts[star] || 0;
+      const width = totalRatings ? `${(count / totalRatings) * 100}%` : "0%";
+
+      return (
+        <div key={star} className="row">
+          <div className="side">
+            <div>
+              <span className="ddd">
+                <b>{star}</b>
+              </span>{" "}
+              <span className={`fa fa-star`}></span>
+            </div>
+          </div>
+          <div className="middle">
+            <div className="bar_container">
+              <div
+                className={`bar bar-${star}`}
+                style={{ "--width": width }}
+              ></div>
+            </div>
+          </div>
+          <div className="side right">
+            <div className="sss">
+              <b>{count}</b>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
 
   return (
     <div className={style.container}>
@@ -45,91 +106,32 @@ const WatchUserAudioTourView = ({
           <div className={style.cardTitle}>
             <h2 className={style.title}>{audioTour.title}</h2>
             <button
-              class="learn-more button"
+              className="learn-more button"
               onClick={() => setShowAudioTour(true)}
             >
-              <span class="circle" aria-hidden="true">
-                <span class="icon arrow"></span>
+              <span className="circle" aria-hidden="true">
+                <span className="icon arrow"></span>
               </span>
-              <span class="button-text">Перейти к аудиогиду</span>
+              <span className="button-text">Перейти к аудиогиду</span>
             </button>
             <p className={style.description}>
-              Description: {audioTour.description}
+              Описание: {audioTour.description}
             </p>
-            <p className={style.place}>Place: {audioTour.place}</p>
-            <p className={style.address}>Address: {audioTour.address}</p>
+            <p className={style.place}>Место: {audioTour.place}</p>
+            <p className={style.address}>Адрес: {audioTour.address}</p>
             {category && (
-              <div className={style.category}>Category: {category.name}</div>
+              <div className={style.category}>Категория: {category.name}</div>
             )}
             <div className={style.rating}>
-              <span class="heading">Пользовательский рейтинг</span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <p>4.1 в среднем по 254 голосам.</p>
-              <hr class="hr_user__rating" />
-              <div class="row">
-                <div class="side">
-                  <div>5 звезд</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div class="bar-5"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>10</div>
-                </div>
-                <div class="side">
-                  <div>4 звезды</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div class="bar-4"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>63</div>
-                </div>
-                <div class="side">
-                  <div>3 звезды</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div class="bar-3"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>15</div>
-                </div>
-                <div class="side">
-                  <div>2 звезды</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div class="bar-2"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>6</div>
-                </div>
-                <div class="side">
-                  <div>1 звезда</div>
-                </div>
-                <div class="middle">
-                  <div class="bar-container">
-                    <div class="bar-1"></div>
-                  </div>
-                </div>
-                <div class="side right">
-                  <div>20</div>
-                </div>
-              </div>
+              <span className="heading">Пользовательский рейтинг</span>
+              {renderStars(avMark)}
+              <p>
+                {avMark} в среднем по {amountMarked} голосам.
+              </p>
+              <hr className="hr_user__rating" />
+              {renderRatingBars()}
             </div>
           </div>
-
           <div className={style.tags}>
             <div className={style.tags_container}>
               {tags.map((tag) => (
@@ -141,18 +143,26 @@ const WatchUserAudioTourView = ({
           </div>
           <div className={style.rating_container__div}>
             <span className={style.rating_userStars__p}>Оценить: </span>
-            <Stars iconSize={27} defaultRating={defaultRating} />
+            <Stars
+              type={"audioGuide"}
+              idItem={audioTour.audioTourId}
+              iconSize={27}
+              defaultRating={userAudioTourMarkQuery.data.mark}
+              setNewCosetAvMark={setNewCosetAvMark}
+              setAmountMarked={setAmountMarked}
+              setMarkCounts={setMarkCounts}
+            />
           </div>
           <button
             className={style.setComments}
             onClick={(e) => setShowComments(!showComments)}
           >
-            {showComments ? "Hide Comments" : "Show Comments"}
+            {showComments ? "Скрыть комментарии" : "Показать комментарии"}
           </button>
 
           {showComments && (
             <div className={style.comments}>
-              <h3 className={style.commentsTitle}>Comments:</h3>
+              <h3 className={style.commentsTitle}>Комментарии:</h3>
               {comments.map((comment) => (
                 <div key={comment.id} className={style.comment}>
                   <p className={style.commentUser}>{`${
@@ -173,10 +183,10 @@ const WatchUserAudioTourView = ({
                   type="text"
                   value={newCommentText}
                   onChange={(e) => setNewCommentText(e.target.value)}
-                  placeholder="Enter your comment"
+                  placeholder="Введите комментарий..."
                 />
                 <button className={style.commentButton} type="submit">
-                  Add Comment
+                  Добавить комментарий
                 </button>
               </form>
             </div>

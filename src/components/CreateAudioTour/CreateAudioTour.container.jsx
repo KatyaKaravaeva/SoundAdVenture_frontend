@@ -25,7 +25,6 @@ export const CreateAudioTourContainer = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const target = event.target;
-    console.log(formData);
     try {
       const { data } = await $authHost.post("/AudioTour/create", {
         ...formData,

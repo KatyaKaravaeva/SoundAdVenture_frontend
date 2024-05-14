@@ -1,8 +1,8 @@
-import { useQuery } from "react-query";
-import { $authHost } from "../../services/api.service";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import WatchUserAudioTourView from "./WatchUserAudioTour.view";
+import { $authHost } from "../../services/api.service";
+import { useQuery } from "react-query";
 
 export const WatchUserAudioTourContainer = () => {
   const { id } = useParams();
@@ -14,6 +14,15 @@ export const WatchUserAudioTourContainer = () => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
   const [newCommentText, setNewCommentText] = useState("");
+  const [avMark, setNewCosetAvMark] = useState(0);
+  const [amountMarked, setAmountMarked] = useState(0);
+  const [markCounts, setMarkCounts] = useState({
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  });
 
   const userAudioTourQuery = useQuery(
     ["updateWatchUserAudioToursData"],
@@ -33,10 +42,88 @@ export const WatchUserAudioTourContainer = () => {
     }
   );
 
+  const userAudioTourMarkQuery = useQuery(
+    ["userAudioTourMarkData"],
+    async () => {
+      try {
+        const { data } = await $authHost.get(
+          `${process.env.REACT_APP_URL}/Stars/getMark?unitId=${id}&type=1`
+        );
+        return data;
+      } catch (error) {
+        const data = { mark: 0 };
+        return data;
+      }
+    },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const userAudioTourAveragеMarkQuery = useQuery(
+    ["userAudioTourAveragеMarkData"],
+    async () => {
+      const [averageMarkResponse, totalMarkCountResponse] = await Promise.all([
+        $authHost.get(
+          `${process.env.REACT_APP_URL}/Stars/getAverageMark?unitId=${id}&type=1`
+        ),
+        $authHost.get(
+          `${process.env.REACT_APP_URL}/Stars/getTotalMarkCount?unitId=${id}&type=1`
+        ),
+      ]);
+
+      const data = averageMarkResponse.data;
+      const data2 = totalMarkCountResponse.data;
+
+      setAmountMarked(data2);
+      setNewCosetAvMark(data);
+
+      return data2;
+    },
+    {
+      retry: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  useEffect(() => {
+    const fetchMarkCounts = async () => {
+      const [oneStar, twoStars, threeStars, fourStars, fiveStars] =
+        await Promise.all([
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=1&mark=1`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=1&mark=2`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=1&mark=3`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=1&mark=4`
+          ),
+          $authHost.get(
+            `${process.env.REACT_APP_URL}/Stars/getMarkCount?unitId=${id}&type=1&mark=5`
+          ),
+        ]);
+
+      setMarkCounts({
+        1: oneStar.data,
+        2: twoStars.data,
+        3: threeStars.data,
+        4: fourStars.data,
+        5: fiveStars.data,
+      });
+    };
+
+    fetchMarkCounts();
+  }, [id]);
+
   const handleAddTag = async (e) => {
     e.preventDefault();
     try {
-      if (!tagInput.trim()){
+      if (!tagInput.trim()) {
         alert("Тег не может быть пустым!");
         return;
       }
@@ -84,7 +171,7 @@ export const WatchUserAudioTourContainer = () => {
 
   const handleAddComment = async (commentText) => {
     try {
-      if (!commentText.trim()){
+      if (!commentText.trim()) {
         alert("Комментарий не может быть пустым!");
         return;
       }
@@ -119,6 +206,14 @@ export const WatchUserAudioTourContainer = () => {
       newCommentText={newCommentText}
       setNewCommentText={setNewCommentText}
       handleAddComment={handleAddComment}
+      userAudioTourMarkQuery={userAudioTourMarkQuery}
+      userAudioTourAveragеMarkQuery={userAudioTourAveragеMarkQuery}
+      avMark={avMark}
+      setNewCosetAvMark={setNewCosetAvMark}
+      setAmountMarked={setAmountMarked}
+      amountMarked={amountMarked}
+      markCounts={markCounts}
+      setMarkCounts={setMarkCounts}
     />
   );
 };

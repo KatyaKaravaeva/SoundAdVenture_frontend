@@ -3,6 +3,10 @@
   margin-right: 25px;
 }
 
+.row{
+  margin-left: 10px;
+}
+
 .fa {
   font-size: 25px;
 }
@@ -11,17 +15,28 @@
   color: orange;
 }
 
-/* Макет в три колонки */
 .side {
   float: left;
   width: 15%;
   margin-top: 10px;
+  padding: 0;
+}
+
+.sss {
+  margin-right: 190px;
+  padding: 0;
+}
+
+.ddd {
+  display: inline-block;
+  font-size: 19px;
 }
 
 .middle {
   float: left;
   width: 70%;
   margin-top: 10px;
+  padding: 0;
 }
 
 .right {
@@ -34,37 +49,42 @@
   clear: both;
 }
 
-.bar-container {
+.bar_container {
   width: 100%;
   background-color: #f1f1f1;
   text-align: center;
   color: white;
+  margin-left: -20px;
 }
 
 .bar-5 {
-  width: 60%;
-  height: 18px;
-  background-color: #04aa6d;
+  height: 22px;
+  background-color: #2e7d32;
+  width: var(--width);
 }
+
 .bar-4 {
-  width: 30%;
-  height: 18px;
-  background-color: #2196f3;
+  height: 22px;
+  background-color: #4caf50;
+  width: var(--width);
 }
+
 .bar-3 {
-  width: 10%;
-  height: 18px;
-  background-color: #00bcd4;
+  height: 22px;
+  background-color: #ffc107;
+  width: var(--width);
 }
+
 .bar-2 {
-  width: 4%;
-  height: 18px;
+  height: 22px;
   background-color: #ff9800;
+  width: var(--width);
 }
+
 .bar-1 {
-  width: 15%;
-  height: 18px;
-  background-color: #f44336;
+  height: 22px;
+  background-color: #ff5722;
+  width: var(--width);
 }
 
 .hr_user__rating {

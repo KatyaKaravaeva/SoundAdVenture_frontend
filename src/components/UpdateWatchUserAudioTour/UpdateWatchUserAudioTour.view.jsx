@@ -55,13 +55,13 @@ const UpdateWatchUserAudioTourView = ({
         <div className={style.cardTitle}>
           <h2 className={style.title}>{audioTour.title}</h2>
           <p className={style.description}>
-            Description: {audioTour.description}
+            Описание: {audioTour.description}
           </p>
-          <p className={style.place}>Place: {audioTour.place}</p>
-          <p className={style.address}>Address: {audioTour.address}</p>
+          <p className={style.place}>Место: {audioTour.place}</p>
+          <p className={style.address}>Адрес: {audioTour.address}</p>
           {category && (
             <div className={style.category}>
-              Category: {category.name}
+              Категория: {category.name}
               <button onClick={onRemoveCategory} className={style.deleteButton}>
                 <img src={Cancel} alt="cancel" />
               </button>
@@ -90,10 +90,10 @@ const UpdateWatchUserAudioTourView = ({
               type="text"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
-              placeholder="Enter tag"
+              placeholder="Добавить тег"
             />
             <button className={style.addButton} type="submit">
-              Add Tag
+              Добавить тег
             </button>
           </div>
         </form>
@@ -105,13 +105,13 @@ const UpdateWatchUserAudioTourView = ({
               type="text"
               value={categoryInput}
               onChange={(e) => setCategoryInput(e.target.value)}
-              placeholder="Enter category"
+              placeholder="Добавить категорию"
             />
             <button className={style.addButton} type="submit">
               {!category ? (
-                <span>Add category</span>
+                <span>Добавить категорию</span>
               ) : (
-                <span>Change category</span>
+                <span>Изменить категорию</span>
               )}
             </button>
           </div>
@@ -121,12 +121,12 @@ const UpdateWatchUserAudioTourView = ({
           className={style.setComments}
           onClick={(e) => setShowComments(!showComments)}
         >
-          {showComments ? "Hide Comments" : "Show Comments"}
+          {showComments ? "Скрыть комментарии" : "Показать комментарии"}
         </button>
 
         {showComments && (
           <div className={style.comments}>
-            <h3 className={style.commentsTitle}>Comments:</h3>
+            <h3 className={style.commentsTitle}>Комментарии:</h3>
             {console.log(comments)}
             {comments.map((comment) => (
               <div key={comment.id} className={style.comment}>
@@ -148,10 +148,10 @@ const UpdateWatchUserAudioTourView = ({
                 type="text"
                 value={newCommentText}
                 onChange={(e) => setNewCommentText(e.target.value)}
-                placeholder="Enter your comment"
+                placeholder="Введите комментарий..."
               />
               <button className={style.commentButton} type="submit">
-                Add Comment
+                Добавить комментарий
               </button>
             </form>
           </div>
@@ -160,10 +160,7 @@ const UpdateWatchUserAudioTourView = ({
       <div className={style.container_right}>
         <div className={style.steps}>
           {userAudioTourStepsQuery.data.map((step, index) => (
-            <div
-              key={step.id}
-              className={style.stepItem}
-            >
+            <div key={step.id} className={style.stepItem}>
               <div className={style.stepNumber}>{index + 1}</div>
             </div>
           ))}
@@ -217,7 +214,12 @@ const UpdateWatchUserAudioTourView = ({
             </button>
           </div>
         )}
-        {addArticle && <CreateArticle audioTourId={id} userAudioTourStepsQuery={userAudioTourStepsQuery} />}
+        {addArticle && (
+          <CreateArticle
+            audioTourId={id}
+            userAudioTourStepsQuery={userAudioTourStepsQuery}
+          />
+        )}
         {addPicture && (
           <div className={style.audio}>
             <input

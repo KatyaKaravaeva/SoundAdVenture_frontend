@@ -66,10 +66,10 @@ const AllAudioTourBookMarkView = ({
               <h2>{tour.title}</h2>
               <p>{tour.description}</p>
               <p>
-                <strong>Place:</strong> {tour.place}
+                <strong>Место:</strong> {tour.place}
               </p>
               <p>
-                <strong>Address:</strong> {tour.address}
+                <strong>Адрес:</strong> {tour.address}
               </p>
             </div>
             <div className={style.cardContentLink}>
@@ -77,7 +77,7 @@ const AllAudioTourBookMarkView = ({
                 to={`/audio_tour_watch/${tour.audioTourId}`}
                 className={style.button}
               >
-                View Details
+                Подробнее
               </Link>
             </div>
           </div>

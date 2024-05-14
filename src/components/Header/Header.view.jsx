@@ -2,13 +2,6 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Logo from "../../asserts/images/logo_dip.png";
 import Exit from "../../asserts/images/logout.svg";
-import User from "../../asserts/images/account.png";
-import CategoriesLogo from "../../asserts/images/category.svg";
-import AddLogo from "../../asserts/images/add_circle.svg";
-import AllLogo from "../../asserts/images/dictionary.svg";
-import BookMarkLogo from "../../asserts/images/bookmarks.svg";
-import UserAudioTours from "../../asserts/images/contact.svg";
-import Courses from "../../asserts/images/school.svg";
 import {
   PERSONAL_ACCOUNT,
   CREATE_AUDIO_TOUR,
@@ -33,7 +26,7 @@ const HeaderView = ({ exit }) => {
   const checkAdmin = userRole === "admin";
   const checkSuperAdmin = userRole === "superAdmin";
   const checkRegisteredOrAdmin =
-    userRole === "registered" || userRole === "admin";
+    userRole === "registered" || userRole === "admin" || "null";
   return (
     <>
       <div className={style.header}>
@@ -47,15 +40,15 @@ const HeaderView = ({ exit }) => {
                 <ul className={style.topmenu}>
                   <li>
                     <NavLink to="/" className={style.active_header}>
-                      Home
+                      Домой
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to={PERSONAL_ACCOUNT}>Personal Account</NavLink>
+                    <NavLink to={PERSONAL_ACCOUNT}>Личный кабинет</NavLink>
                   </li>
                   {checkRegisteredOrAdmin && (
                     <li>
-                      <span className={style.down}>AudioGuides</span>
+                      <span className={style.down}>Аудиогиды</span>
                       <ul className={style.submenu}>
                         <li>
                           {checkAdmin && (
@@ -99,7 +92,7 @@ const HeaderView = ({ exit }) => {
                   )}
                   {checkRegisteredOrAdmin && (
                     <li>
-                      <span className={style.down}>Educational Courses</span>
+                      <span className={style.down}>Образовательные курсы</span>
 
                       <ul className={style.submenu}>
                         <li>
@@ -130,11 +123,13 @@ const HeaderView = ({ exit }) => {
                   )}
                   {checkSuperAdmin && (
                     <li>
-                      <NavLink to={ALL_USERS_CONTROL}>User management</NavLink>
+                      <NavLink to={ALL_USERS_CONTROL}>
+                        Контроль пользователей 
+                      </NavLink>
                     </li>
                   )}
                   <li>
-                    <NavLink to={CONTACT}>Contact</NavLink>
+                    <NavLink to={CONTACT}>Контакты</NavLink>
                   </li>
                 </ul>
               </nav>

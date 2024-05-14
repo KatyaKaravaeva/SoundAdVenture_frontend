@@ -83,10 +83,10 @@ const AllCoursesView = ({
                   <h2>{course.title}</h2>
                   <p>{course.description}</p>
                   <p>
-                    <strong>Place:</strong> {course.place}
+                    <strong>Место:</strong> {course.place}
                   </p>
                   <p>
-                    <strong>Address:</strong> {course.address}
+                    <strong>Адрес:</strong> {course.address}
                   </p>
                 </div>
                 <div className={style.cardContentLink}>
@@ -94,7 +94,7 @@ const AllCoursesView = ({
                     to={`/watch_course/${course.courseId}`}
                     className={style.button}
                   >
-                    View Details
+                    Подробнее
                   </Link>
                 </div>
               </div>

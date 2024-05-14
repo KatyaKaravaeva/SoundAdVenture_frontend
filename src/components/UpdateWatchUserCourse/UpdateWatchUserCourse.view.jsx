@@ -58,13 +58,13 @@ const UpdateWatchUserCourseView = ({
         <div className={style.cardTitle}>
           <h2 className={style.title}>{audioTour.title}</h2>
           <p className={style.description}>
-            Description: {audioTour.description}
+            Описание: {audioTour.description}
           </p>
-          <p className={style.place}>Place: {audioTour.place}</p>
-          <p className={style.address}>Address: {audioTour.address}</p>
+          <p className={style.place}>Место: {audioTour.place}</p>
+          <p className={style.address}>Адрес: {audioTour.address}</p>
           {category && (
             <div className={style.category}>
-              Category: {category.name}
+              Категория: {category.name}
               <button onClick={onRemoveCategory} className={style.deleteButton}>
                 <img src={Cancel} alt="cancel" />
               </button>
@@ -94,10 +94,10 @@ const UpdateWatchUserCourseView = ({
               type="text"
               value={tagInput}
               onChange={(e) => setTagInput(e.target.value)}
-              placeholder="Enter tag"
+              placeholder="Введите тег"
             />
             <button className={style.addButton} type="submit">
-              Add Tag
+              Добавить тег
             </button>
           </div>
         </form>
@@ -109,13 +109,13 @@ const UpdateWatchUserCourseView = ({
               type="text"
               value={categoryInput}
               onChange={(e) => setCategoryInput(e.target.value)}
-              placeholder="Enter category"
+              placeholder="Введите категорию"
             />
             <button className={style.addButton} type="submit">
               {!category ? (
-                <span>Add category</span>
+                <span>Добавить категорию</span>
               ) : (
-                <span>Change category</span>
+                <span>Изменить категорию</span>
               )}
             </button>
           </div>
@@ -125,12 +125,12 @@ const UpdateWatchUserCourseView = ({
           className={style.setComments}
           onClick={(e) => setShowComments(!showComments)}
         >
-          {showComments ? "Hide Comments" : "Show Comments"}
+          {showComments ? "Скрыть комментарии" : "Показать комментарии"}
         </button>
 
         {showComments && (
           <div className={style.comments}>
-            <h3 className={style.commentsTitle}>Comments:</h3>
+            <h3 className={style.commentsTitle}>Комментарии:</h3>
             {console.log(comments)}
             {comments.map((comment) => (
               <div key={comment.id} className={style.comment}>
@@ -152,10 +152,10 @@ const UpdateWatchUserCourseView = ({
                 type="text"
                 value={newCommentText}
                 onChange={(e) => setNewCommentText(e.target.value)}
-                placeholder="Enter your comment"
+                placeholder="Введите комментарий..."
               />
               <button className={style.commentButton} type="submit">
-                Add Comment
+                Добавить комментарий
               </button>
             </form>
           </div>
@@ -248,7 +248,7 @@ const UpdateWatchUserCourseView = ({
               className={style.audio_input}
             />
             <button className={style.button_add} onClick={uploadVideoFile}>
-              Add Video
+              Добавить видео
             </button>
           </div>
         )}

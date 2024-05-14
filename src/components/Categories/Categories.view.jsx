@@ -27,7 +27,7 @@ const CategoriesView = ({ categoriesQuery }) => {
 
   return (
     <div className={style.categoriesContainer}>
-      <h2>Categories</h2>
+      <h2>Категории</h2>
       <ul className={style.categoryList}>
         {console.log(data)}
         {data.map((category, index) => (

@@ -61,7 +61,7 @@ const UserAudioTourView = ({
                   to={`${AUDIO_TOUR}/${tour.audioTourId}`}
                   className={style.button}
                 >
-                  View Details
+                  Подробнее
                 </Link>
               </div>
               <button

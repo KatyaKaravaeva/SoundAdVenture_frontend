@@ -49,7 +49,7 @@ const ChooseCategoryCourseView = ({
                 to={`/watch_course/${tour.courseId}`}
                 className={style.button}
               >
-                View Details
+                Подробнее
               </Link>
             </div>
           </div>

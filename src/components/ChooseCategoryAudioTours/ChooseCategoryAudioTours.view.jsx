@@ -49,7 +49,7 @@ const ChooseCategoryAudioToursView = ({
                 to={`/audio_tour_watch/${tour.audioTourId}`}
                 className={style.button}
               >
-                View Details
+                Подробнее
               </Link>
             </div>
           </div>

@@ -33,12 +33,25 @@ export const AllUsersControlContainer = () => {
       refetchOnWindowFocus: false,
     }
   );
+
+  const deleteUser = async (userId) => {
+    try {
+      await $authHost.delete(`/Auth/user/${userId}`);
+      setUsersData((prevUsersData) =>
+        prevUsersData.filter((user) => user.id !== userId)
+      );
+    } catch (error) {
+      console.error("Failed to delete user:", error);
+    }
+  };
+
   return (
     <>
       <AllUsersControlView
         usersListQuery={usersListQuery}
         usersData={usersData}
         handleModalOpen={handleModalOpen}
+        deleteUser={deleteUser}
       />
       {isModalOpenNotAll && (
         <ManagePersonData

@@ -15,16 +15,16 @@ const MainPageView = () => {
               Здесь вы найдете увлекательные аудиоэкскурсии и образовательные
               курсы, посвященные достопримечательностям. Погрузитесь в
               удивительный мир истории и культуры!
-            </p>  
+            </p>
             <div className={style.hero_cta}>
               <Link
                 className={`${style.button} ${style.button_primary}`}
                 to={All_AUDIO_TOUR}
               >
-                Audio Tours
+                Аудиогиды
               </Link>
               <Link className={style.button} to={All_COURSES}>
-                Courses
+                Курсы
               </Link>
             </div>
           </div>

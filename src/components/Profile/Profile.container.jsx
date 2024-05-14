@@ -31,6 +31,9 @@ export const ProfileContainer = () => {
       patronymic,
       login,
     } = userData;
+    if (!lastname || !name || !patronymic || !login){
+      alert("Все поля должны быть заполнены!");
+    }
     try {
       const { data } = await $authHost.put(`/Auth/user`, {
         lastname,

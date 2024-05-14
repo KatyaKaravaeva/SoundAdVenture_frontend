@@ -46,7 +46,7 @@
 
 .place,
 .address {
-  font-size: 16px;
+  font-size: 17px;
   color: #777;
   margin-bottom: 10px;
 }
@@ -55,6 +55,21 @@
 .address::before {
   content: "•";
   margin-right: 6px;
+}
+
+.rating_container__div {
+  margin-top: 20px;
+}
+
+.rating_userStars__p {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.rating {
+  margin-top: 30px;
+  color: #333;
 }
 
 .categoryTitle {
@@ -210,7 +225,7 @@
 
 .cardTitle .place,
 .cardTitle .address {
-  font-size: 16px;
+  font-size: 17.5px;
   margin-bottom: 5px;
 }
 
@@ -266,13 +281,13 @@
 }
 
 .commentForm {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
 .commentInput {
   flex: 1;
-  padding: 12px; 
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -339,14 +354,13 @@
 }
 
 .container .toggleButton {
-  margin: 20px auto; 
+  margin: 20px auto;
   display: block;
 }
 
-
 .container_right .toggleButton {
   margin: 20px auto;
-  display: block; 
+  display: block;
 }
 
 .toggleButton.animated {
@@ -376,3 +390,8 @@
   background-color: #cccccc78;
   border-radius: 50%;
 }
+
+
+
+
+

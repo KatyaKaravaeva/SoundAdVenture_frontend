@@ -61,7 +61,7 @@ const UserCoursesView = ({
                   to={`${COURSE}/${tour.courseId}`}
                   className={style.button}
                 >
-                  View Details
+                  Подробнее
                 </Link>
               </div>
               <button

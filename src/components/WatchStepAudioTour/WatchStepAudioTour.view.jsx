@@ -92,7 +92,7 @@ const WatchStepAudioTourView = ({
               </Box>
             </div>
           </div>
-          <div class="container_switch">
+          {/* <div class="container_switch">
             <div class="toggle">
               <input type="checkbox" />
               <span class="button"></span>
@@ -103,7 +103,7 @@ const WatchStepAudioTourView = ({
               <span class="button"></span>
               <span class="label">{">"}</span>
             </div>
-          </div>
+          </div> */}
           {activeStepId == null ? (
             <div className={style.stepper_show}>
               <h2>{userAudioTourQuery.data.title}</h2>

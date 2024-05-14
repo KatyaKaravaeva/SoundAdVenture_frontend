@@ -7,11 +7,11 @@ const RegistrationView = ({ handleSubmit }) => {
     <div className={style.main}>
       <div className={style.container}>
         <form name="registration" onSubmit={(e) => handleSubmit(e)}>
-          <h1>Registration</h1>
+          <h1>Регистрация</h1>
           <div className={style.input_box}>
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Имя"
               name="registration[name]"
               required
             />
@@ -19,7 +19,7 @@ const RegistrationView = ({ handleSubmit }) => {
           <div className={style.input_box}>
             <input
               type="text"
-              placeholder="Patronymic"
+              placeholder="Отчество"
               name="registration[patronymic]"
               required
             />
@@ -28,7 +28,7 @@ const RegistrationView = ({ handleSubmit }) => {
           <div className={style.input_box}>
             <input
               type="text"
-              placeholder="Lastname"
+              placeholder="Фамилия"
               name="registration[lastname]"
               required
             />
@@ -37,7 +37,7 @@ const RegistrationView = ({ handleSubmit }) => {
           <div className={style.input_box}>
             <input
               type="text"
-              placeholder="Login"
+              placeholder="Логин"
               name="registration[login]"
               required
             />
@@ -46,17 +46,17 @@ const RegistrationView = ({ handleSubmit }) => {
           <div className={style.input_box}>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Пароль"
               name="registration[password]"
               required
             />
           </div>
           <button type="submit" className={style.btn}>
-            Sign up
+            Зарегистрироваться
           </button>
           <div className={style.form_group}>
             <NavLink to={AUTHORIZATION} className={style.form_group__a}>
-              Sign in
+              Вход
             </NavLink>
           </div>
         </form>

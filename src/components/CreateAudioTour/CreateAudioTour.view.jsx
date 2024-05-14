@@ -27,7 +27,7 @@ const CreateAudioTour = ({
             textAlign: "center",
           }}
         >
-          Create Audio Tour
+          Создать аудиоэкскурсию
         </h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -35,7 +35,7 @@ const CreateAudioTour = ({
               className="label"
               style={{ display: "block", marginBottom: "8px" }}
             >
-              Title:
+              Заголовок:
             </label>
             <input
               className="input form-control"
@@ -59,7 +59,7 @@ const CreateAudioTour = ({
               className="label"
               style={{ display: "block", marginBottom: "8px" }}
             >
-              Description:
+              Описание:
             </label>
             <textarea
               className="input textarea form-control"
@@ -84,7 +84,7 @@ const CreateAudioTour = ({
               className="label"
               style={{ display: "block", marginBottom: "8px" }}
             >
-              Path to Picture:
+              Изображение:
             </label>
             <input
               className="input form-control"
@@ -108,7 +108,7 @@ const CreateAudioTour = ({
               className="label"
               style={{ display: "block", marginBottom: "8px" }}
             >
-              Place:
+              Место:
             </label>
             <input
               className="input form-control"
@@ -132,7 +132,7 @@ const CreateAudioTour = ({
               className="label"
               style={{ display: "block", marginBottom: "8px" }}
             >
-              Address:
+              Адрес:
             </label>
             <input
               className="input form-control"
